@@ -1,4 +1,4 @@
-#MEX=/softs/stow/matlab-2012b/bin/mex
+MEX=/usr/local/matlab2009b/bin/mex
 
 
 # common flags
@@ -14,7 +14,7 @@ all: mex octave py
 # implementation is reasonably fast, but must be pointed to explicitly
 # because -lblas is not efficient:
 
-BLASLIB=/usr/lib64/atlas/libf77blas.so.3
+BLASLIB=/net/per900a/raid0/plsang/usr.local/lib/libblas.so
 
 
 # matlab-specific version of x_matrix.o
@@ -48,7 +48,7 @@ matlab/jsgd_train.mex: matlab/jsgd_train.c c/jsgd.o c/x_matrix.o
 # developer packages for Python and numpy. From these includes,
 # Python.h and numpy/arrayobject.h should be accessible:
 
-PYTHONINCLUDES=-I/usr/include/python2.7
+PYTHONINCLUDES=-I/net/per900a/raid0/plsang/usr.local/include/python2.7 -I/net/per900a/raid0/plsang/usr.local/lib/python2.7/site-packages/numpy/core/include
 
 # also produces python/jsgd_wrap.py
 python/jsgd_wrap_wrap.c: python/jsgd_wrap.swg c/jsgd.h c/x_matrix.h
