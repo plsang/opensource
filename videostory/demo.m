@@ -87,6 +87,6 @@ aps
 mean(aps)
 aps = [aps, mean(aps)];
 
-dmlwrite(output_file, aps);
+dlmwrite(output_file, aps);
 
 end
