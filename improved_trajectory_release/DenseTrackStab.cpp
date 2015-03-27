@@ -30,20 +30,6 @@ int main(int argc, char** argv)
 	InitDescInfo(&hofInfo, 9, true, patch_size, nxy_cell, nt_cell);
 	InitDescInfo(&mbhInfo, 8, false, patch_size, nxy_cell, nt_cell);
 
-	SeqInfo seqInfo;
-	InitSeqInfo(&seqInfo, video);
-
-	std::vector<Frame> bb_list;
-	if(bb_file) {
-		LoadBoundBox(bb_file, bb_list);
-		assert(bb_list.size() == seqInfo.length);
-	}
-
-	if(flag)
-		seqInfo.length = end_frame - start_frame + 1;
-
-//	fprintf(stderr, "video size, length: %d, width: %d, height: %d\n", seqInfo.length, seqInfo.width, seqInfo.height);
-
 	if(show_track == 1)
 		namedWindow("DenseTrackStab", 0);
 
