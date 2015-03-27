@@ -109,8 +109,6 @@ int main(int argc, char** argv)
 			my::FarnebackPolyExpPyr(prev_grey, prev_poly_pyr, fscales, 7, 1.5);
 
 			human_mask = Mat::ones(frame.size(), CV_8UC1);
-			if(bb_file)
-				InitMaskWithBox(human_mask, bb_list[frame_num].BBs);
 
 			detector_surf.detect(prev_grey, prev_kpts_surf, human_mask);
 			extractor_surf.compute(prev_grey, prev_kpts_surf, prev_desc_surf);
@@ -124,8 +122,6 @@ int main(int argc, char** argv)
 		cvtColor(image, grey, CV_BGR2GRAY);
 
 		// match surf features
-		if(bb_file)
-			InitMaskWithBox(human_mask, bb_list[frame_num].BBs);
 		detector_surf.detect(grey, kpts_surf, human_mask);
 		extractor_surf.compute(grey, kpts_surf, desc_surf);
 		ComputeMatch(prev_kpts_surf, kpts_surf, prev_desc_surf, desc_surf, prev_pts_surf, pts_surf);
