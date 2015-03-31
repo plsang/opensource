@@ -236,8 +236,8 @@ int main(int argc, char** argv)
 
 			// detect new feature points every gap frames
 			std::vector<Point2f> points(0);
-			for(std::list<Track>::iterator iTrack = tracks.begin(); iTrack != tracks.end(); iTrack++)
-				points.push_back(iTrack->point[iTrack->index]);
+			//for(std::list<Track>::iterator iTrack = tracks.begin(); iTrack != tracks.end(); iTrack++)
+			//	points.push_back(iTrack->point[iTrack->index]);
 
 			DenseSample(grey_pyr[iScale], points, quality, min_distance);
 			// save the new feature points
