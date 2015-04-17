@@ -20,6 +20,8 @@ train_label = double(cat(2, train_bags(:).inst_label));
 num_train_inst = size(train_instance, 1);
 num_test_inst = size(test_instance, 1);
 
+precomputed_kernel = 1;
+
 if isempty(train_bags)
     if (~isfield(preprocess, 'model_file') || isempty(preprocess.model_file))
         error('The model file must be provided in the train_only setting!');
@@ -31,13 +33,24 @@ else
     step = 1;
     past_train_label(step,:) = train_label;
     
+    if precomputed_kernel == 1,
+        fprintf('\tCalculating train kernel .. \n') ;	
+        train_kernel = train_instance*train_instance';
+        
+        fprintf('\tCalculating test kernel .. \n') ;	
+        test_kernel = train_instance*[train_instance; test_instance]';
+    end
+    
     while 1
         %num_pos_label = sum(train_label == 1);
         %num_neg_label = sum(train_label == 0);
         %new_para = sprintf(' -NegativeWeight %.10g', (num_pos_label / num_neg_label));
         
-        [all_label_predict, all_prob_predict] = LibSVM(para, train_instance, train_label, [train_instance; test_instance], ones(num_train_inst+num_test_inst, 1));
-        %[all_label_predict, all_prob_predict] = LibSVM(para, train_instance, train_label, test_instance, ones(num_test_inst, 1));
+        if precomputed_kernel == 0,
+            [all_label_predict, all_prob_predict] = LibSVM(para, train_instance, train_label, [train_instance; test_instance], ones(num_train_inst+num_test_inst, 1));
+        else
+            [all_label_predict, all_prob_predict] = LibSVM_pre(para, train_kernel, train_label, test_kernel, ones(num_train_inst+num_test_inst, 1));
+        end
         
         train_label_predict = all_label_predict(1 : num_train_inst);
         train_prob_predict = all_prob_predict(1 : num_train_inst);
