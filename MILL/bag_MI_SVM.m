@@ -91,38 +91,44 @@ else
         idx = 0;
         pos_idx = 1;
         
-        sample_instance = cell(num_train_bag);
+        %sample_instance = cell(num_train_bag);
         sample_label = cell(num_train_bag);
         sample_ind = zeros(num_train_inst, 1);
+        sample_ptr = 0;
         
         for i=1:num_train_bag
             num_inst = size(train_bags(i).instance, 1);
 
             if train_bags(i).label == 0
-                sample_instance{i} = train_bags(i).instance;
+                %sample_instance{i} = train_bags(i).instance;
                 sample_label{i} = zeros(num_inst, 1);                
                 this_ind = idx + [1:size(train_bags(i).instance, 1)];
-                %sample_ind = [sample_ind, this_ind];
+                sample_ind(sample_ptr+1:sample_ptr+num_inst) = this_ind;
                 
-                %idx = idx + num_inst;
+                sample_ptr = sample_ptr + num_inst;
             else
                 [sort_prob, sort_idx] = sort(train_prob_predict(idx+1 : idx+num_inst));
-                sample_instance{i} = train_bags(i).instance(sort_idx(num_inst),:);
+                %sample_instance{i} = train_bags(i).instance(sort_idx(num_inst),:);
                 sample_label{i} = 1;
+                
+                this_ind = idx + sort_idx(num_inst);
+                sample_ind(sample_ptr+1) = this_ind;
                 
                 selection(pos_idx) = sort_idx(num_inst);
                 pos_idx = pos_idx + 1;
                 
-                %idx = idx + 1;
+                sample_ptr = sample_ptr + 1;
             end
             idx = idx + num_inst;
         end
+        
+        sample_ind(sample_ptr+1:end) = [];
 
-        sample_instance = cat(1, sample_instance{:});
+        %sample_instance = cat(1, sample_instance{:});
         sample_label = cat(1, sample_label{:})';
         
-        %sample_train_kernel =  ?
-        %sample_test_kernel = ?
+        sample_train_kernel = train_kernel(sample_ind, sample_ind);
+        sample_test_kernel = test_kernel(sample_ind, :);
 
         %compare the current selection with previous selection, quit if same
         difference = sum(past_selection(:, step) ~= selection);
