@@ -34,3 +34,16 @@ run.BagAccu = MIL_Bag_Evaluate(test_bags, test_bag_label);
 if ~isempty(test_inst_label)
     run.InstAccu = MIL_Inst_Evaluate(test_bags, test_inst_label);
 end;
+
+%% cal MAP
+[sorted_scores, idx] = sort(test_bag_prob, 'descend');
+gt_idx = find(cat(1, test_bags(:).label) == 1);
+
+rank_idx = arrayfun(@(x)find(idx == x), gt_idx);
+
+sorted_idx = sort(rank_idx);	
+ap = 0;
+for kk = 1:length(sorted_idx), 
+    ap = ap + kk/sorted_idx(kk);
+end
+run.BagAccuMED = ap/length(sorted_idx);
