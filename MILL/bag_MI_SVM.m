@@ -11,6 +11,8 @@ num_test_bag = length(test_bags);
 train_instance = cat(1, train_bags(:).instance);
 test_instance = cat(1, test_bags(:).instance);
 
+precomputed_kernel = 1;
+
 if isempty(train_bags)
 
     if (~isfield(preprocess, 'model_file') || isempty(preprocess.model_file))
@@ -26,6 +28,15 @@ else
     sample_instance = cell(num_train_bag);
     sample_label = cell(num_train_bag);
     
+    if precomputed_kernel == 1,
+        fprintf('\tCalculating train kernel .. \n') ;	
+        train_kernel = train_instance*train_instance';
+        
+        fprintf('\tCalculating test kernel .. \n') ;	
+        test_kernel = train_instance*[train_instance; test_instance]';
+    end
+    
+
     for i = 1: num_train_bag
         num_inst = size(train_bags(i).instance, 1);
         if train_bags(i).label == 0
@@ -33,16 +44,11 @@ else
             %sample_label(idx+1 : idx+num_inst) = zeros(num_inst, 1);
             sample_instance{i} = train_bags(i).instance;
             sample_label{i} = zeros(num_inst, 1);
-            
-            idx = idx + num_inst;
-            
         else
             %sample_instance(idx+1, :) = mean(train_bags(i).instance, 1);
             %sample_label(idx+1) = 1;
             sample_instance{i} = mean(train_bags(i).instance, 1);
             sample_label{i} = 1;
-            
-            idx = idx + 1;
             num_pos_train_bag = num_pos_train_bag + 1;
         end
     end
@@ -50,11 +56,19 @@ else
     sample_instance = cat(1, sample_instance{:});
     sample_label = cat(1, sample_label{:})';
     
+    if precomputed_kernel == 1,
+        fprintf('\tCalculating sample train kernel .. \n') ;	
+        sample_train_kernel = sample_instance*sample_instance';
+        
+        fprintf('\tCalculating sample test kernel .. \n') ;	
+        sample_test_kernel = sample_instance*[train_instance; test_instance]';
+    end
+    
     num_train_inst = size(train_instance, 1);
     num_test_inst = size(test_instance, 1);
 
     num_neg_train_bag = num_train_bag - num_pos_train_bag;
-    num_neg_train_inst = idx - num_pos_train_bag;
+    num_neg_train_inst = size(sample_instance, 1) - num_pos_train_bag;
     avg_num_inst = num_neg_train_inst / num_neg_train_bag;
 
     selection = zeros(num_pos_train_bag, 1);
@@ -63,7 +77,12 @@ else
     
     while 1
         new_para = sprintf(' -NegativeWeight %.10g', 1/avg_num_inst);
-        [all_label_predict, all_prob_predict] = LibSVM([para new_para], sample_instance, sample_label, [train_instance; test_instance], ones(num_train_inst+num_test_inst, 1));
+        if precomputed_kernel == 0,
+            [all_label_predict, all_prob_predict] = LibSVM([para new_para], sample_instance, sample_label, [train_instance; test_instance], ones(num_train_inst+num_test_inst, 1));
+        else
+            [all_label_predict, all_prob_predict] = LibSVM_pre([para new_para], sample_train_kernel, sample_label, sample_test_kernel, ones(num_train_inst+num_test_inst, 1));
+        end
+
         train_label_predict = all_label_predict(1 : num_train_inst);
         train_prob_predict = all_prob_predict(1 : num_train_inst);
         test_label_predict = all_label_predict(num_train_inst+1 : num_train_inst+ num_test_inst);
@@ -74,14 +93,18 @@ else
         
         sample_instance = cell(num_train_bag);
         sample_label = cell(num_train_bag);
-    
+        sample_ind = zeros(num_train_inst, 1);
+        
         for i=1:num_train_bag
             num_inst = size(train_bags(i).instance, 1);
 
             if train_bags(i).label == 0
                 sample_instance{i} = train_bags(i).instance;
                 sample_label{i} = zeros(num_inst, 1);                
-                idx = idx + num_inst;
+                this_ind = idx + [1:size(train_bags(i).instance, 1)];
+                %sample_ind = [sample_ind, this_ind];
+                
+                %idx = idx + num_inst;
             else
                 [sort_prob, sort_idx] = sort(train_prob_predict(idx+1 : idx+num_inst));
                 sample_instance{i} = train_bags(i).instance(sort_idx(num_inst),:);
@@ -90,12 +113,16 @@ else
                 selection(pos_idx) = sort_idx(num_inst);
                 pos_idx = pos_idx + 1;
                 
-                idx = idx + 1;
+                %idx = idx + 1;
             end
+            idx = idx + num_inst;
         end
 
         sample_instance = cat(1, sample_instance{:});
         sample_label = cat(1, sample_label{:})';
+        
+        %sample_train_kernel =  ?
+        %sample_test_kernel = ?
 
         %compare the current selection with previous selection, quit if same
         difference = sum(past_selection(:, step) ~= selection);
