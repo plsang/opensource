@@ -137,43 +137,12 @@ elseif (strcmpi(header, 'leave_one_out')),
     classifier = rem;
 elseif (strcmpi(header, 'train_test_validate_med2012')), 
     preprocess.Evaluation = 6;
-    p = str2num(char(ParseParameter(para, {'-t'}, {'1'})));  %% event_id, 1-25
-    preprocess.event_id = p(1);
+    p = str2num(char(ParseParameter(para, {'-ss'; '-ee'; '-mneg'}, {'1'; '1'; '+Inf'})));  %% event_id, 1-25
+    preprocess.start_event = p(1);
+    preprocess.end_event = p(2);
+    preprocess.max_neg = p(3);
     classifier = rem;
 end;   
-
-% [header, para, rem] = ParseCmd(classifier, '--');
-% if (strcmpi(header, 'train_test_simple')), 
-%     preprocess.MultiClassType = 0;
-%     p = str2num(char(ParseParameter(para, {'-LabelType'}, {'1'})));
-%     preprocess.MultiClass.LabelType = p(1);
-%     classifier = rem;
-% elseif (strcmpi(header, 'train_test_multiple_class')), 
-%     preprocess.MultiClassType = 1;
-%     p = str2num(char(ParseParameter(para, {'-LabelType'; '-CodeType'; '-LossFuncType'}, {'1'; '0'; '2'})));
-%     preprocess.MultiClass.LabelType = p(1);
-%     preprocess.MultiClass.CodeType = p(2);
-%     preprocess.MultiClass.LossFuncType = p(3);
-%     preprocess.MultiClass.UncertaintyFuncType = 2; 
-%     preprocess.MultiClass.ProbEstimation = 0;
-%     classifier = rem;
-% elseif (strcmpi(header, 'train_test_multiple_label')), 
-%     preprocess.MultiClassType = 2;
-%     p = str2num(char(ParseParameter(para, {'-LabelType'}, {'1'})));
-%     preprocess.MultiClass.LabelType = p(1);
-%     classifier = rem;
-% elseif (strcmpi(header, 'train_test_multiple_class_AL')), 
-%     preprocess.MultiClassType = 3;
-%     p = str2num(char(ParseParameter(para, {'-LabelType'; '-CodeType'; '-LossFuncType'; '-ALIter'; '-ALIncrSize'}, {'1'; '0'; '2'; '4'; '10'})));
-%     preprocess.MultiClass.LabelType = p(1);
-%     preprocess.MultiClass.CodeType = p(2);F@
-%     preprocess.MultiClass.LossFuncType = p(3);
-%     preprocess.ActiveLearning.Iteration = p(4);
-%     preprocess.ActiveLearning.IncrementSize = p(5);
-%     preprocess.MultiClass.UncertaintyFuncType = 2; 
-%     preprocess.MultiClass.ProbEstimation = 0;
-%     classifier = rem;
-% end;   
 
 % Initialize the message string
 preprocess.Message = '';
@@ -193,7 +162,7 @@ elseif (preprocess.Evaluation == 4)
     msg = sprintf(' Testing on File %s, ', preprocess.input_file);
     preprocess.Message = [preprocess.Message msg];     
 elseif (preprocess.Evaluation == 6)
-    msg = sprintf(' Running on MED2012, event %d ', preprocess.event_id);
+    msg = sprintf(' Running on MED2012, start event = %d, end event = %d, max neg = %d', preprocess.start_event, preprocess.end_event, preprocess.max_neg);
     preprocess.Message = [preprocess.Message msg]; 
 else
  
@@ -201,101 +170,10 @@ else
     preprocess.Message = [preprocess.Message msg]; 
 end;
 
-% if (preprocess.MultiClassType == 0)
-%     msg = sprintf(' Classification, ', preprocess.TrainTestSplitBoundary);
-%     preprocess.Message = [preprocess.Message msg]; 
-% elseif (preprocess.MultiClassType == 1) 
-%     msg = sprintf(' Multiclass Classification Wrapper, ', preprocess.NumCrossFolder);
-%     preprocess.Message = [preprocess.Message msg];     
-% elseif (preprocess.MultiClassType == 2) 
-%     msg = sprintf(' Multilabel Classification Wrapper, ', preprocess.NumCrossFolder);
-%     preprocess.Message = [preprocess.Message msg];     
-% elseif (preprocess.MultiClassType == 3) 
-%     msg = sprintf(' Multiclass Active Learning Wrapper, ', preprocess.NumCrossFolder);
-%     preprocess.Message = [preprocess.Message msg];     
-% end;
-
-% if (preprocess.SVD == 1)
-%     msg = sprintf(' SVD ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% end;
-
 if (preprocess.Shuffled == 1)
     msg = sprintf(' Shuffled ');
     preprocess.Message = [preprocess.Message msg]; 
 end;
-
-% if (preprocess.Sparse == 1)
-%     msg = sprintf(' Sparse ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% end;
-
-% if (preprocess.MultiClass.CodeType == 0) 
-%     msg = sprintf(' Coding: 1-vs-r ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.CodeType == 1)
-%     msg = sprintf(' Coding: 1-vs-1 ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% elseif (preprocess.MultiClass.CodeType == 2)
-%     msg = sprintf(' Coding: ECOC15_5 ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.CodeType == 3)
-%     msg = sprintf(' Coding: ECOC63_31 ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% elseif (preprocess.MultiClass.CodeType == 4)
-%     msg = sprintf(' Coding: Random ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% end;    
-
-% if (preprocess.MultiClass.LossFuncType == 0) 
-%     msg = sprintf(' Loss: L1 ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.LossFuncType == 1)
-%     msg = sprintf(' Loss: Exp ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% elseif (preprocess.MultiClass.LossFuncType == 2)
-%     msg = sprintf(' Loss: (1-Y)+ ');
-%     preprocess.Message = [preprocess.Message msg];
-% end;    
-% 
-% if (preprocess.MultiClass.UncertaintyFuncType == 0) 
-%     msg = sprintf(' Uncertainty: L1 ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.UncertaintyFuncType == 1)
-%     msg = sprintf(' Uncertainty: Exp ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% elseif (preprocess.MultiClass.UncertaintyFuncType == 2)
-%     msg = sprintf(' Uncertainty: (1-Y)+ ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.UncertaintyFuncType == 3)
-%     msg = sprintf(' Uncertainty: Min Margin ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.UncertaintyFuncType == 4)
-%     msg = sprintf(' Uncertainty: -ln(1+x) ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.UncertaintyFuncType == 5)
-%     msg = sprintf(' Uncertainty: Random ');
-%     preprocess.Message = [preprocess.Message msg];
-% end;    
-% 
-% if (preprocess.MultiClass.ProbEstimation == 0) 
-%     msg = sprintf(' Best Worse ');
-%     preprocess.Message = [preprocess.Message msg];
-% elseif (preprocess.MultiClass.ProbEstimation == 1)
-%     msg = sprintf(' Uniform Guess ');
-%     preprocess.Message = [preprocess.Message msg]; 
-% elseif (preprocess.MultiClass.ProbEstimation == 2)
-%     msg = sprintf(' Binary Class ');
-%     preprocess.Message = [preprocess.Message msg];     
-% end;
-
-% if (preprocess.DataSampling == 1)
-%     msg = sprintf(' Sampling Rate: %d', preprocess.DataSamplingRate);
-%     preprocess.Message = [preprocess.Message msg];    
-% end;
-
-% num_folder = preprocess.NumFolder;
-% num_cross_folder = preprocess.NumCrossFolder;; 
 
 % load in the data
 if ((~isfield(preprocess, 'input_file')) | (isempty(preprocess.input_file))), 
@@ -338,32 +216,6 @@ if (preprocess.PredFormat == 0),
 end;
 fclose(fid);    
 
-% in MIL, we use a function to read the input data and convert into bag
-% formats; sparse format is not currently supported 
-
-% if (preprocess.InputFormat == 1),
-%     strcmd = sprintf('!perl %s/ConvertFileInput.pl %s %s.stdout', root, input_file, input_file);
-%     fprintf('!perl %s/ConvertFileInput.pl %s %s.stdout\n', root, input_file, input_file); 
-%     eval(strcmd);
-%     D = dlmread(sprintf('%s.stdout', input_file));
-% else
-%     D = dlmread(input_file);
-% end;
-% 
-% if (preprocess.Sparse == 1),
-%     D = spconvert(D);
-% end;
-
-% Automatically judge whether the shot information is available
-% if (preprocess.ShotAvailable < 0),
-%    if (length(unique(D(:, size(D, 2)))) > 10), 
-%        preprocess.ShotAvailable = 1;
-%    else
-%        preprocess.ShotAvailable = 0;
-%    end;
-%    fprintf('Automatically detect preprocess.ShotAvailable to be %d \n', preprocess.ShotAvailable );
-% end;
-
 fprintf('Finished loading %s.............\n', input_file);
 fprintf('Output Results to %s.............\n', output_file);
 fprintf('Output Predictions to %s.............\n', pred_file);
@@ -400,16 +252,6 @@ switch (preprocess.Evaluation)
 end;
 
 fhandle = @MIL_Train_Test_Simple;   %currently only address the binary MIL classification probleem 
-% switch (preprocess.MultiClassType)
-%     case 0
-%         fhandle = @Train_Test_Simple;
-%     case 1
-%         fhandle = @Train_Test_Multiple_Class;
-%     case 2
-%         fhandle = @Train_Test_Multiple_Label;
-%     case 3
-%         fhandle = @Train_Test_Multiple_Class_AL;
-% end;
        
 fprintf('Classifier:%s\nMessage:%s\n',classifier, preprocess.Message);
 if ((preprocess.Evaluation >= 3) & (preprocess.Evaluation <= 4))
@@ -418,23 +260,12 @@ else
     run = feval(EvaluationHandle, input_file, fhandle, classifier);
 end;
 
+if preprocess.Evaluation == 6, return; end;
+
 OutputResult = [];
 if (isfield(run, 'BagAccu')), OutputResult = [OutputResult sprintf('Bag label accuracy = %f, ', run.BagAccu)]; end;
 if (isfield(run, 'InstAccu')), OutputResult = [OutputResult sprintf('Instance label accuracy = %f, ', run.InstAccu)]; end;
 if (isfield(run, 'BagAccuMED')), OutputResult = [OutputResult sprintf('MAP = %f, ', run.BagAccuMED)]; end;
-
-%if (isfield(run, 'Err')), OutputResult = [OutputResult sprintf('Error = %f, ', run.Err)]; end;
-%if (isfield(run, 'Prec')), OutputResult = [OutputResult sprintf('Precision = %f, ', run.Prec)]; end;
-%if (isfield(run, 'Rec')), OutputResult = [OutputResult sprintf('Recall = %f, ', run.Rec)]; end;
-%if (isfield(run, 'F1')), OutputResult = [OutputResult sprintf('F1 = %f, ', run.F1)]; end;
-%if (isfield(run, 'Micro_Prec')), OutputResult = [OutputResult sprintf('Micro_Precision = %f, ', run.Micro_Prec)]; end;
-%if (isfield(run, 'Micro_Rec')), OutputResult = [OutputResult sprintf('Micro_Recall = %f, ', run.Micro_Rec)]; end;
-%if (isfield(run, 'Micro_F1')), OutputResult = [OutputResult sprintf('Micro_F1 = %f, ', run.Micro_F1)]; end;
-%if (isfield(run, 'Macro_Prec')), OutputResult = [OutputResult sprintf('Macro_Precision = %f, ', run.Macro_Prec)]; end;
-%if (isfield(run, 'Macro_Rec')), OutputResult = [OutputResult sprintf('Macro_Recall = %f, ', run.Macro_Rec)]; end;
-%if (isfield(run, 'Macro_F1')), OutputResult = [OutputResult sprintf('Macro_F1 = %f, ', run.Macro_F1)]; end;
-%if (isfield(run, 'AvgPrec')), OutputResult = [OutputResult sprintf('MAP = %f, ', run.AvgPrec)]; end;
-%if (isfield(run, 'BaseAvgPrec')), OutputResult = [OutputResult sprintf('MBAP = %f, ', run.BaseAvgPrec)]; end;
 
 fprintf('%s\n', OutputResult);
 if (~isempty(output_file)) 
@@ -449,20 +280,7 @@ if (~isempty(pred_file))
     fprintf(fid, 'Testing Bag Label Evaluation:\n');
     fprintf(fid, 'Index\tProbability\tPredict\tTruth\n');
     fprintf(fid, '%d\t%g\t%d\t%d\n', run.bag_pred');
-    
-%     if (preprocess.OutputFormat == 0),
-%         if (size(run.Y_pred, 2) == 4),
-%             fprintf(fid, 'Index\tProb\t\tPred\tTruth\n');
-%             fprintf(fid, '%d\t%f\t%d\t%d\n', run.Y_pred');
-%         else
-%             fprintf(fid, 'Index\tProb\t\tPred\tTruth\tShotID\n');
-%             fprintf(fid, '%d\t%f\t%d\t%d\t%d\n', run.Y_pred');
-%         end;
-%     elseif (preprocess.OutputFormat == 1), % Only work when number of classes is 2
-%         fprintf(fid, 'Label: '); fprintf(fid, '%d ', preprocess.OrgClassSet); fprintf(fid, '\n');
-%         ProbClass1 = run.Y_pred(:, 2) .* (run.Y_pred(:, 3) == 1)  + (1 - run.Y_pred(:, 2)) .* (run.Y_pred(:, 3) ~= 1);
-%         fprintf(fid, '%d\t%f\t%f\n', [preprocess.OrgClassSet(run.Y_pred(:, 3)) ProbClass1 (1 - ProbClass1)]');
-%     end;
+ 
     fclose(fid);
 end;
 
