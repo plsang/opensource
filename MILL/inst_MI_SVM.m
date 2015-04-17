@@ -16,11 +16,10 @@ train_instance = cat(1, train_bags(:).instance);
 test_instance = cat(1, test_bags(:).instance);
 
 train_label = double(cat(2, train_bags(:).inst_label));
+test_label = double(cat(2, test_bags(:).inst_label));
 
 num_train_inst = size(train_instance, 1);
 num_test_inst = size(test_instance, 1);
-
-precomputed_kernel = 1;
 
 if isempty(train_bags)
     if (~isfield(preprocess, 'model_file') || isempty(preprocess.model_file))
@@ -33,29 +32,16 @@ else
     step = 1;
     past_train_label(step,:) = train_label;
     
-    if precomputed_kernel == 1,
-        fprintf('\tCalculating train kernel .. \n') ;	
-        train_kernel = train_instance*train_instance';
-        
-        fprintf('\tCalculating test kernel .. \n') ;	
-        test_kernel = train_instance*[train_instance; test_instance]';
-    end
+    
+    fprintf('\tCalculating train kernel .. \n') ;	
+    train_kernel = train_instance*train_instance';
     
     while 1
         %num_pos_label = sum(train_label == 1);
         %num_neg_label = sum(train_label == 0);
         %new_para = sprintf(' -NegativeWeight %.10g', (num_pos_label / num_neg_label));
         
-        if precomputed_kernel == 0,
-            [all_label_predict, all_prob_predict] = LibSVM(para, train_instance, train_label, [train_instance; test_instance], ones(num_train_inst+num_test_inst, 1));
-        else
-            [all_label_predict, all_prob_predict] = LibSVM_pre(para, train_kernel, train_label, test_kernel, ones(num_train_inst+num_test_inst, 1));
-        end
-        
-        train_label_predict = all_label_predict(1 : num_train_inst);
-        train_prob_predict = all_prob_predict(1 : num_train_inst);
-        test_label_predict = all_label_predict(num_train_inst+1 : num_train_inst+ num_test_inst);
-        test_prob_predict = all_prob_predict(num_train_inst+1 : num_train_inst+ num_test_inst);
+        [train_label_predict, train_prob_predict, current_model] = LibSVM_pre(para, train_kernel, train_label, train_kernel, train_label);
 
         idx = 0;
         for i=1:num_train_bag
@@ -99,8 +85,10 @@ else
 end
 
 %prediction
-test_inst_label = test_label_predict;
-test_inst_prob = test_prob_predict;
+fprintf('\tCalculating test kernel .. \n') ;	
+test_kernel = train_instance*test_instance';
+    
+[test_inst_label, test_inst_prob] = LibSVM_pre(para, [], [], test_kernel, test_label, current_model);
 
 idx = 0;
 test_bag_label = zeros(num_test_bag, 1);
