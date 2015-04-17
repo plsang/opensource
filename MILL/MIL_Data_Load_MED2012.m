@@ -9,7 +9,7 @@ load(filename);
        
 num_data = size(featNum, 2);
 
-max_negative = 30;
+max_negative = 100;
 
 for ii=1:num_data,
     bags(ii).name = fileList{ii};
@@ -24,9 +24,14 @@ for ii=1:size(Label, 2),
     if ii==event_idx, continue; end;
     
     neg_idx_ii = find(Label(TrnInd, ii) == 1);
-    randidx = randperm(length(neg_idx_ii));
-    sel_idx = randidx(1:max_negative);
-    sub_train_idx = [sub_train_idx; neg_idx_ii(sel_idx)];
+    
+    if max_negative > length(neg_idx_ii),
+        sub_train_idx = [sub_train_idx; neg_idx_ii];
+    else
+        randidx = randperm(length(neg_idx_ii));
+        sel_idx = randidx(1:max_negative);
+        sub_train_idx = [sub_train_idx; neg_idx_ii(sel_idx)];
+    end
 end
 
 all_idx = 1:num_data;
