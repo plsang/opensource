@@ -66,9 +66,12 @@ else
     new_para = sprintf(' -NegativeWeight %.10g', 1/avg_num_inst);
     para = [para new_para];
     
+    current_sample_ind = [];
+    
     while 1,
         
         [train_label_predict, train_prob_predict, current_model] = LibSVM_pre(para, sample_train_kernel, sample_label, sample_test_kernel, train_label);
+        clear sample_train_kernel sample_test_kernel;
         
         idx = 0;
         pos_idx = 1;
@@ -108,11 +111,6 @@ else
 
         %sample_instance = cat(1, sample_instance{:});
         sample_label = cat(1, sample_label{:})';
-        
-        clear sample_train_kernel sample_test_kernel;
-        
-        sample_train_kernel = train_kernel(sample_ind, sample_ind);
-        sample_test_kernel = train_kernel(sample_ind, :);
 
         %compare the current selection with previous selection, quit if same
         difference = sum(past_selection(:, step) ~= selection);
@@ -134,16 +132,22 @@ else
 
         step = step + 1;
         past_selection(:, step) = selection;
+        
+        sample_train_kernel = train_kernel(sample_ind, sample_ind);
+        sample_test_kernel = train_kernel(sample_ind, :);
+        current_sample_ind = sample_ind;
     end
+end
+
+if isempty(current_sample_ind),
+    warning('Only one interation!!! \n');
 end
 
 %prediction
 fprintf('\tCalculating test kernel .. \n') ;	
-test_kernel = train_instance(sample_ind, :)*test_instance';
+test_kernel = train_instance(current_sample_ind, :)*test_instance';
     
 [test_inst_label, test_inst_prob] = LibSVM_pre(para, [], [], test_kernel, test_label, current_model);
-
-
 idx = 0;
 for i=1:num_test_bag
     num_inst = size(test_bags(i).instance, 1);
@@ -151,3 +155,5 @@ for i=1:num_test_bag
     test_bag_prob(i) = max(test_inst_prob(idx+1 : idx+num_inst));
     idx = idx + num_inst;
 end
+
+clear test_kernel train_instance test_instance;

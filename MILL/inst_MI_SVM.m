@@ -84,6 +84,8 @@ else
     end    
 end
 
+clear train_kernel;
+
 %prediction
 fprintf('\tCalculating test kernel .. \n') ;	
 test_kernel = train_instance*test_instance';
@@ -98,3 +100,5 @@ for i=1:num_test_bag
     test_bag_prob(i) = max(test_inst_prob(idx+1 : idx+num_inst));
     idx = idx + num_inst;
 end
+
+clear test_kernel train_instance test_instance;

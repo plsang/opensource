@@ -421,6 +421,7 @@ end;
 OutputResult = [];
 if (isfield(run, 'BagAccu')), OutputResult = [OutputResult sprintf('Bag label accuracy = %f, ', run.BagAccu)]; end;
 if (isfield(run, 'InstAccu')), OutputResult = [OutputResult sprintf('Instance label accuracy = %f, ', run.InstAccu)]; end;
+if (isfield(run, 'BagAccuMED')), OutputResult = [OutputResult sprintf('MAP = %f, ', run.BagAccuMED)]; end;
 
 %if (isfield(run, 'Err')), OutputResult = [OutputResult sprintf('Error = %f, ', run.Err)]; end;
 %if (isfield(run, 'Prec')), OutputResult = [OutputResult sprintf('Precision = %f, ', run.Prec)]; end;
