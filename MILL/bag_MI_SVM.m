@@ -6,8 +6,10 @@ global temp_train_file temp_test_file temp_output_file temp_model_file libSVM_di
 num_train_bag = length(train_bags);
 num_test_bag = length(test_bags);
 
-[train_instance, dummy] = bag2instance(train_bags);
-[test_instance, dummy] = bag2instance(test_bags);
+%[train_instance, dummy] = bag2instance(train_bags);
+%[test_instance, dummy] = bag2instance(test_bags);
+train_instance = cat(1, train_bags(:).instance);
+test_instance = cat(1, test_bags(:).instance);
 
 if isempty(train_bags)
 
@@ -20,20 +22,34 @@ else
     %set the initial instance labels to bag labels
     idx = 0;
     num_pos_train_bag = 0;
+    
+    sample_instance = cell(num_train_bag);
+    sample_label = cell(num_train_bag);
+    
     for i = 1: num_train_bag
         num_inst = size(train_bags(i).instance, 1);
         if train_bags(i).label == 0
-            sample_instance(idx+1 : idx+num_inst, :) = train_bags(i).instance;
-            sample_label(idx+1 : idx+num_inst) = zeros(num_inst, 1);
+            %sample_instance(idx+1 : idx+num_inst, :) = train_bags(i).instance;
+            %sample_label(idx+1 : idx+num_inst) = zeros(num_inst, 1);
+            sample_instance{i} = train_bags(i).instance;
+            sample_label{i} = zeros(num_inst, 1);
+            
             idx = idx + num_inst;
+            
         else
-            sample_instance(idx+1, :) = mean(train_bags(i).instance, 1);
-            sample_label(idx+1) = 1;
+            %sample_instance(idx+1, :) = mean(train_bags(i).instance, 1);
+            %sample_label(idx+1) = 1;
+            sample_instance{i} = mean(train_bags(i).instance, 1);
+            sample_label{i} = 1;
+            
             idx = idx + 1;
             num_pos_train_bag = num_pos_train_bag + 1;
         end
     end
-
+    
+    sample_instance = cat(1, sample_instance{:});
+    sample_label = cat(1, sample_label{:})';
+    
     num_train_inst = size(train_instance, 1);
     num_test_inst = size(test_instance, 1);
 
@@ -55,17 +71,21 @@ else
 
         idx = 0;
         pos_idx = 1;
+        
+        sample_instance = cell(num_train_bag);
+        sample_label = cell(num_train_bag);
+    
         for i=1:num_train_bag
             num_inst = size(train_bags(i).instance, 1);
 
             if train_bags(i).label == 0
-                sample_instance(idx+1 : idx+num_inst, :) = train_bags(i).instance;
-                sample_label(idx+1 : idx+num_inst) = zeros(num_inst, 1);                
+                sample_instance{i} = train_bags(i).instance;
+                sample_label{i} = zeros(num_inst, 1);                
                 idx = idx + num_inst;
             else
                 [sort_prob, sort_idx] = sort(train_prob_predict(idx+1 : idx+num_inst));
-                sample_instance(idx + 1, :) = train_bags(i).instance(sort_idx(num_inst),:);
-                sample_label(idx + 1) = 1;
+                sample_instance{i} = train_bags(i).instance(sort_idx(num_inst),:);
+                sample_label{i} = 1;
                 
                 selection(pos_idx) = sort_idx(num_inst);
                 pos_idx = pos_idx + 1;
@@ -73,6 +93,9 @@ else
                 idx = idx + 1;
             end
         end
+
+        sample_instance = cat(1, sample_instance{:});
+        sample_label = cat(1, sample_label{:})';
 
         %compare the current selection with previous selection, quit if same
         difference = sum(past_selection(:, step) ~= selection);

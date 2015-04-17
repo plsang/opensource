@@ -1,5 +1,7 @@
 function run = MIL_Run(classifier)
 
+addpath('/net/per610a/export/das11f/plsang/tools/libsvm-3.12/matlab');
+
 warning('off','MATLAB:colon:operandsNotRealScalar');
 
 % clear global preprocess;
@@ -133,6 +135,11 @@ elseif (strcmpi(header, 'test_only')),
 elseif (strcmpi(header, 'leave_one_out')), 
     preprocess.Evaluation = 5;    
     classifier = rem;
+elseif (strcmpi(header, 'train_test_validate_med2012')), 
+    preprocess.Evaluation = 6;
+    p = str2num(char(ParseParameter(para, {'-t'}, {'1'})));  %% event_id, 1-25
+    preprocess.event_id = p(1);
+    classifier = rem;
 end;   
 
 % [header, para, rem] = ParseCmd(classifier, '--');
@@ -185,7 +192,11 @@ elseif (preprocess.Evaluation == 3)
 elseif (preprocess.Evaluation == 4)
     msg = sprintf(' Testing on File %s, ', preprocess.input_file);
     preprocess.Message = [preprocess.Message msg];     
-else 
+elseif (preprocess.Evaluation == 6)
+    msg = sprintf(' Running on MED2012, event %d ', preprocess.event_id);
+    preprocess.Message = [preprocess.Message msg]; 
+else
+ 
     msg = sprintf(' Train-Test Split, Boundary: %d, ', preprocess.TrainTestSplitBoundary);
     preprocess.Message = [preprocess.Message msg]; 
 end;
@@ -384,6 +395,8 @@ switch (preprocess.Evaluation)
     case 5
         EvaluationHandle = @MIL_Leave_One_Out;           
         preprocess.Shuffled = 0;
+    case 6
+        EvaluationHandle = @MIL_Train_Test_Validate_MED2012;
 end;
 
 fhandle = @MIL_Train_Test_Simple;   %currently only address the binary MIL classification probleem 

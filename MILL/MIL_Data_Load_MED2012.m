@@ -9,6 +9,8 @@ load(filename);
        
 num_data = size(featNum, 2);
 
+max_negative = 30;
+
 for ii=1:num_data,
     bags(ii).name = fileList{ii};
     bags(ii).inst_name = arrayfun(@(x) sprintf('HVC1000-%d', x), [1:featNum(ii)], 'UniformOutput', false);
@@ -17,10 +19,23 @@ for ii=1:num_data,
     bags(ii).instance = featMat{ii};
 end
 
-num_feature = size(bags(1).instance, 2);
+sub_train_idx = find(Label(TrnInd, event_idx) == 1);
+for ii=1:size(Label, 2),
+    if ii==event_idx, continue; end;
+    
+    neg_idx_ii = find(Label(TrnInd, ii) == 1);
+    randidx = randperm(length(neg_idx_ii));
+    sel_idx = randidx(1:max_negative);
+    sub_train_idx = [sub_train_idx; neg_idx_ii(sel_idx)];
+end
 
-testindex = TstInd';
-trainindex = TrnInd';
+all_idx = 1:num_data;
+
+testindex = all_idx(TstInd);
+trainindex = sub_train_idx';
+
+num_data = length([trainindex, testindex]);
+num_feature = size(bags(1).instance, 2);
 
 % normalize the data set
 if (preprocess.Normalization == 1) 

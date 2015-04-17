@@ -7,15 +7,15 @@ num_train_bag = length(train_bags);
 num_test_bag = length(test_bags);
 
 %set the initial instance labels to bag labels
-idx = 0;
-for i=1:num_train_bag
-    num_inst = size(train_bags(i).instance, 1);
-    train_label(idx+1 : idx+num_inst) = repmat(train_bags(i).label, num_inst, 1);    
-    idx = idx + num_inst;
-end
 
-[train_instance, dummy] = bag2instance(train_bags);
-[test_instance, dummy] = bag2instance(test_bags);
+
+%%[train_instance, dummy] = bag2instance(train_bags);
+%%[test_instance, dummy] = bag2instance(test_bags);
+
+train_instance = cat(1, train_bags(:).instance);
+test_instance = cat(1, test_bags(:).instance);
+
+train_label = double(cat(2, train_bags(:).inst_label));
 
 num_train_inst = size(train_instance, 1);
 num_test_inst = size(test_instance, 1);
@@ -37,6 +37,8 @@ else
         %new_para = sprintf(' -NegativeWeight %.10g', (num_pos_label / num_neg_label));
         
         [all_label_predict, all_prob_predict] = LibSVM(para, train_instance, train_label, [train_instance; test_instance], ones(num_train_inst+num_test_inst, 1));
+        %[all_label_predict, all_prob_predict] = LibSVM(para, train_instance, train_label, test_instance, ones(num_test_inst, 1));
+        
         train_label_predict = all_label_predict(1 : num_train_inst);
         train_prob_predict = all_prob_predict(1 : num_train_inst);
         test_label_predict = all_label_predict(num_train_inst+1 : num_train_inst+ num_test_inst);
