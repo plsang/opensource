@@ -6,7 +6,7 @@
 % The videos are bags, while frames or video clips in a vide are instances
 
 
-function psvm_train(VidLabel, BagInstNum, InstDataVec, Proportion, C1Params, C2Params, SaveName, max_neg)
+function psvm_train(VidLabel, BagInstNum, InstDataVec, Proportion, C1Params, C2Params, SaveName)
 
 % VidLabel:     Labels of videos (bags) 
 % BagInstNum:   Number of instances in each bag (video)
@@ -16,11 +16,8 @@ function psvm_train(VidLabel, BagInstNum, InstDataVec, Proportion, C1Params, C2P
 % C2Params:     Cost weight for label proportion loss
 % SaveName:     The prefix of output model's filename
 
-if ~exist('max_neg', 'var'),
-    CLS_NEG_NO = 30; % Number of negatvie samples selected from each class
-else
-    CLS_NEG_NO = max_neg;
-end
+
+CLS_NEG_NO = 30; % Number of negatvie samples selected from each class
 
 % Check the ground truth's type
 if (size(VidLabel, 2) == 1)
@@ -97,17 +94,11 @@ for C2 = C2Params
             
             fprintf('Training Event %d by pSVM\n', i);
             Params.method = 'alter-pSVM'; Params.C_2=C2; Params.ep = 0; Params.verbose=0;
-            Params.max_iter = 10;
-            
-            fprintf('cal train kernel...\n');
-            train_kernel = subData*subData';
-            fprintf('done...\n');
-                
+            Params.max_iter = 50;
             for n=1:length(C1Params)
                 fprintf('C1=%g, C2=%g\n', C1Params(n), C2);
                 Params.C=C1Params(n); 
-                %model{n, i} = alternating_svm_linear(sparse(double(subData)), subFrmBagInd, bagPortion, Params);
-                model{n, i} = alternating_svm_linear_pre(subData, train_kernel, subFrmBagInd, bagPortion, Params);
+                model{n, i} = alternating_svm_linear_MIL(sparse(double(subData)), subFrmBagInd, bagPortion, Params);
             end
         end
     	save(sprintf('%s_c%g_p%g.mat', SaveName, C2, proport), 'model');

@@ -1,10 +1,10 @@
 % Calculate mean AP on test dataset
+function test_MED12(run_name, C1Params, C2Params, max_neg)
 
-clear all; clc
 ModelDir = 'models';
 SaveDir = 'results';
-C1Params = [0.001, 1];
-C2Params = [0.01, 1, 100];
+%C1Params = [0.001, 1];
+%C2Params = [0.01, 1, 100];
 Proportion = [1];
 
 % Load TRECVID MED12 dataset
@@ -14,7 +14,7 @@ TstLabel = Label(TstInd, :);
 featMat = featMat(TstInd);
 featNum = featNum(TstInd);
 StartEvent = 1;
-ModelName = 'med12_psvm_mbh_20s';
+ModelName = sprintf('med12_psvm_mbh_20s_%s_mneg%d', run_name, max_neg);
 
 for c2 = 1:length(C2Params)
     for p = 1:length(Proportion)
