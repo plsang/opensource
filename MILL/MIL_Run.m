@@ -137,10 +137,16 @@ elseif (strcmpi(header, 'leave_one_out')),
     classifier = rem;
 elseif (strcmpi(header, 'train_test_validate_med2012')), 
     preprocess.Evaluation = 6;
-    p = str2num(char(ParseParameter(para, {'-ss'; '-ee'; '-mneg'}, {'1'; '1'; '+Inf'})));  %% event_id, 1-25
-    preprocess.start_event = p(1);
-    preprocess.end_event = p(2);
-    preprocess.max_neg = p(3);
+    %p = str2num(char(ParseParameter(para, {'-ss'; '-ee'; '-mneg'; '-fname'; '-fdim'; '-nagg'}, {'1'; '1'; '+Inf'; 'idensetraj.hoghof.hardbow.cb4000'; '4000'; '5'})));  %% event_id, 1-25
+    p = ParseParameter(para, {'-ss'; '-ee'; '-mneg'; '-fname'; '-fdim'; '-nagg'}, {'1'; '1'; '+Inf'; 'idensetraj.hoghof.hardbow.cb4000'; '4000'; '5'});
+    preprocess.start_event = str2num(p{1});
+    preprocess.end_event = str2num(p{2});
+    preprocess.max_neg = str2num(p{3});
+    
+    preprocess.feat_name = p{4};
+    preprocess.feat_dim = str2num(p{5});
+    preprocess.num_agg = str2num(p{6});
+    
     classifier = rem;
 end;   
 
@@ -248,7 +254,7 @@ switch (preprocess.Evaluation)
         EvaluationHandle = @MIL_Leave_One_Out;           
         preprocess.Shuffled = 0;
     case 6
-        EvaluationHandle = @MIL_Train_Test_Validate_MED2012;
+        EvaluationHandle = @MIL_Train_Test_Validate_MED2012_mm;
 end;
 
 fhandle = @MIL_Train_Test_Simple;   %currently only address the binary MIL classification probleem 
