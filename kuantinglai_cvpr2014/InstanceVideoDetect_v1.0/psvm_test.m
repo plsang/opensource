@@ -60,4 +60,4 @@ for c2 = 1:length(C2Params)
     end
 end
 
-save(sprintf('%s/%s_AP', SaveDir, ModelName), 'APs', 'C1Params', 'C2Params', 'Proportion');
+save(sprintf('%s/%s_AP.mat', SaveDir, ModelName), 'APs', 'C1Params', 'C2Params', 'Proportion');

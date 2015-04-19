@@ -6,15 +6,16 @@ function main_med_fisher(feat_name, feat_dim, run_name, max_neg)
     %C1Params = [0.1, 1, 10];
     %C2Params = [0.1, 1, 10];
     C1Params = [1];
-    C2Params = [100, 1000, 10000];
+    C2Params = [0.1, 1, 10, 100, 1000];
     Proportion = 1;
+
+    conf_name = sprintf('%s.%s', feat_name, run_name);
     
     addpath(genpath('pSVM-master'));
     addpath('liblinear-1.95/matlab');
     
     num_agg = 5;  % min_seg =4s, multiply by num_agg to form new seg
-    conf_name = sprintf('%s.%s', feat_name, run_name);
-    
+
     if ~isempty(strfind(feat_name, 'bow')),
         MEDMD = load_metadata(feat_name, feat_dim, num_agg);
     elseif ~isempty(strfind(feat_name, 'fisher')),    
@@ -140,8 +141,7 @@ function MEDMD = load_metadata_fisher(feat_name, feat_dim, num_agg)
         total_unit_seg = size(code, 2);
         idxs = 1:num_agg:total_unit_seg;
         featMat_ = zeros(feat_dim, length(idxs));
-
-        remove_last_seg = 0;
+        error_idx = [];
         for jj=1:length(idxs),
             start_idx = idxs(jj);
             end_idx = start_idx + num_agg - 1;
@@ -152,30 +152,26 @@ function MEDMD = load_metadata_fisher(feat_name, feat_dim, num_agg)
                 code_ = code_(:, ~any(isnan(code_), 1));
             end
             
-            if isempty(code_) && end_idx == total_unit_seg,
-                remove_last_seg = 1;
-                break;
-            end
-            
             stats = sum(code_, 2);
             cpp_handle = mexFisherEncodeHelperSP('init', codebook, fisher_params);
             code_= mexFisherEncodeHelperSP('getfkstats', cpp_handle, stats);
             mexFisherEncodeHelperSP('clear', cpp_handle);
             code_ = sign(code_) .* sqrt(abs(code_));    
-            featMat_(:, jj) = code_;
+            
+            if any(isnan(code_)) || ~any(code_),
+                error_idx = [error_idx, jj];
+            else
+                featMat_(:, jj) = code_;
+            end
             
             clear code_ stats;
         end
         
-        if remove_last_seg,
-            fprintf('Last seg of video <%s> contains NaN. Removing...\n', feat_pat);
-            featMat(start_idx:end, :) = [];
-        end
-        
+        featMat_(:, error_idx) = [];
         featMat_ = l2_norm_matrix(featMat_);
         MEDMD.featMat{ii} = featMat_';
-        MEDMD.featNum(ii) = length(idxs);
-        
+      
+        MEDMD.featNum(ii) = length(idxs) - length(error_idx);
         clear code featMat_;
     end
 

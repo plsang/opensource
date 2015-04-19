@@ -97,7 +97,7 @@ for C2 = C2Params
             
             fprintf('Training Event %d by pSVM\n', i);
             Params.method = 'alter-pSVM'; Params.C_2=C2; Params.ep = 0; Params.verbose=0;
-            Params.max_iter = 10;
+            %Params.max_iter = 10;
             
             fprintf('cal train kernel...\n');
             train_kernel = subData*subData';
