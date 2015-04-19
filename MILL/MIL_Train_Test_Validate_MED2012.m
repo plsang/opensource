@@ -13,7 +13,7 @@ function run = MIL_Train_Test_Validate_MED2012(input_file, classifier_wrapper_ha
     
     [classifier_name, para, additional_classifier] = ParseCmd(classifier, '--');
     
-    output_file = sprintf('%s/%s.linear.maxneg%d.mat', output_dir, classifier_name, preprocess.max_neg);
+    output_file = sprintf('%s/%s.linear.start%d.end%d.neg%d.mat', output_dir, classifier_name, preprocess.start_event, preprocess.end_event, preprocess.max_neg);
     
     runs = cell(preprocess.end_event-preprocess.start_event + 1, 1);
     
@@ -38,6 +38,7 @@ function [bags, num_data, num_feature, trainindex, testindex] = Load_MED2012(med
            
     num_data = size(medmd.featNum, 2);
 
+    bags(num_data)=struct();
     for ii=1:num_data,
         bags(ii).name = medmd.fileList{ii};
         bags(ii).inst_name = arrayfun(@(x) sprintf('HVC1000-%d', x), [1:medmd.featNum(ii)], 'UniformOutput', false);
@@ -46,25 +47,26 @@ function [bags, num_data, num_feature, trainindex, testindex] = Load_MED2012(med
         bags(ii).instance = medmd.featMat{ii};
     end
 
-    sub_train_idx = find(medmd.Label(medmd.TrnInd, event_id) == 1);
+    all_idx = 1:num_data;
+    
+    sub_train_idx = all_idx((medmd.Label(:, event_id) == 1) & medmd.TrnInd);
+    
     for ii=1:size(medmd.Label, 2),
         if ii==event_id, continue; end;
         
-        neg_idx_ii = find(medmd.Label(medmd.TrnInd, ii) == 1);
+        neg_idx_ii = all_idx((medmd.Label(:, ii) == 1) & medmd.TrnInd);
         
         if max_neg > length(neg_idx_ii),
-            sub_train_idx = [sub_train_idx; neg_idx_ii];
+            sub_train_idx = [sub_train_idx, neg_idx_ii];
         else
             randidx = randperm(length(neg_idx_ii));
             sel_idx = randidx(1:max_neg);
-            sub_train_idx = [sub_train_idx; neg_idx_ii(sel_idx)];
+            sub_train_idx = [sub_train_idx, neg_idx_ii(sel_idx)];
         end
     end
 
-    all_idx = 1:num_data;
-
     testindex = all_idx(medmd.TstInd);
-    trainindex = sub_train_idx';
+    trainindex = sub_train_idx;
 
     num_data = length([trainindex, testindex]);
     num_feature = size(bags(1).instance, 2);
