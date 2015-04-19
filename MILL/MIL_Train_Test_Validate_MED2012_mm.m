@@ -24,7 +24,7 @@ function run = MIL_Train_Test_Validate_MED2012_mm(input_file, classifier_wrapper
     
     [classifier_name, para, additional_classifier] = ParseCmd(classifier, '--');
     
-    output_file = sprintf('%s/%s.linear.start%d.end%d.neg%d.mat', output_dir, classifier_name, preprocess.start_event, preprocess.end_event, preprocess.max_neg);
+    output_file = sprintf('%s/%s.linear.start%d.end%d.neg%d.nagg%d.mat', output_dir, classifier_name, preprocess.start_event, preprocess.end_event, preprocess.max_neg, preprocess.num_agg);
     
     runs = cell(preprocess.end_event-preprocess.start_event + 1, 1);
     
