@@ -1,19 +1,23 @@
 
 %tic;
-function main_med_fisher(feat_name, feat_dim, run_name, max_neg)
+function mAPs = main_med(feat_name, feat_dim, run_name, max_neg, num_agg, svmlib)
     % run_name: r1, r2,,,
+    
+    if ~exist('svmlib', 'var'),
+        svmlib = 'libsvm';
+    end
     
     %C1Params = [0.1, 1, 10];
     %C2Params = [0.1, 1, 10];
     C1Params = [1];
-    C2Params = [100, 1000, 10000];
+    C2Params = [1];
     Proportion = 1;
     
     addpath(genpath('pSVM-master'));
     addpath('liblinear-1.95/matlab');
     
-    num_agg = 5;  % min_seg =4s, multiply by num_agg to form new seg
-    conf_name = sprintf('%s.%s', feat_name, run_name);
+    %num_agg = 5;  % min_seg =4s, multiply by num_agg to form new seg
+    conf_name = sprintf('%s_mneg%d_nagg%d_%s_%s', feat_name, max_neg, num_agg, svmlib, run_name);
     
     if ~isempty(strfind(feat_name, 'bow')),
         MEDMD = load_metadata(feat_name, feat_dim, num_agg);
@@ -28,15 +32,15 @@ function main_med_fisher(feat_name, feat_dim, run_name, max_neg)
     size(TrainVec)
     TrnFeatNum = MEDMD.featNum(MEDMD.TrnInd);
     VidLabel = MEDMD.Label(MEDMD.TrnInd, :);
-    OUT_NAME = sprintf('models/med12_psvm_mbh_20s_%s_mneg%d', conf_name, max_neg);
+    OUT_NAME = sprintf('models/%s', conf_name);
 
-    psvm_train(VidLabel, TrnFeatNum, TrainVec, Proportion, C1Params, C2Params, OUT_NAME, max_neg);
+    psvm_train(VidLabel, TrnFeatNum, TrainVec, Proportion, C1Params, C2Params, OUT_NAME, max_neg, svmlib);
 
     TstLabel = MEDMD.Label(MEDMD.TstInd, :);
     featMat = MEDMD.featMat(MEDMD.TstInd);
     featNum = MEDMD.featNum(MEDMD.TstInd);
 
-    psvm_test(TstLabel, featMat, featNum, conf_name, C1Params, C2Params, max_neg);
+    mAPs = psvm_test(TstLabel, featMat, featNum, conf_name, C1Params, C2Params);
 
 end
 

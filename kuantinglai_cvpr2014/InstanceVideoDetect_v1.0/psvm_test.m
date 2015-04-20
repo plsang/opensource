@@ -1,5 +1,5 @@
 % Calculate mean AP on test dataset
-function psvm_test(TstLabel, featMat, featNum, run_name, C1Params, C2Params, max_neg)
+function mAPs = psvm_test(TstLabel, featMat, featNum, ModelName, C1Params, C2Params)
 
 ModelDir = 'models';
 SaveDir = 'results';
@@ -8,7 +8,6 @@ SaveDir = 'results';
 Proportion = [1];
 
 StartEvent = 1;
-ModelName = sprintf('med12_psvm_mbh_20s_%s_mneg%d', run_name, max_neg);
 
 for c2 = 1:length(C2Params)
     for p = 1:length(Proportion)
