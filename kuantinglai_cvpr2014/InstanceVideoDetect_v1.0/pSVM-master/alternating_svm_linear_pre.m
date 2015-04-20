@@ -112,10 +112,12 @@ function [ model ] = optimize_w_pre(fea, train_kernel, model, para)
     posWeight = ceil(length(find(model.y == -1))/length(find(model.y == 1)));
     weights = [+1 posWeight ; -1 1]';
     
-    for c=[1 -1],    
-        widx = find(weights(1,:)==c) ;
-		svm_opts = [svm_opts sprintf(' -w%d %g', c, weights(2,widx))] ;
-	end	
+    if 0,
+        for c=[1 -1],    
+            widx = find(weights(1,:)==c) ;
+            svm_opts = [svm_opts sprintf(' -w%d %g', c, weights(2,widx))] ;
+        end	
+    end
     
     fprintf('Training with options %s .................\n', svm_opts);
     N = length(model.y);
