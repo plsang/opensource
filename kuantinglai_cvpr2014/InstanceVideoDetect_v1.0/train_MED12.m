@@ -18,6 +18,6 @@ OUT_NAME = sprintf('models/med12_psvm_mbh_20s_%s_mneg%d', run_name, max_neg);
 %C2 = [1];
 Proportion = 1;
 
-psvm_train(VidLabel, TrnFeatNum, TrainVec, Proportion, C1Params, C2Params, OUT_NAME, max_neg);
+psvm_train(VidLabel, TrnFeatNum, TrainVec, Proportion, C1Params, C2Params, OUT_NAME, max_neg, 'liblinear');
 
 clear TrainVec;

@@ -1,6 +1,6 @@
 
 %tic;
-function mAPs = main_med(feat_name, feat_dim, run_name, max_neg, num_agg, svmlib)
+function mAPs = main_med(feat_name, feat_dim, run_name, max_neg, num_agg, C1, C2, svmlib)
     % run_name: r1, r2,,,
     
     if ~exist('svmlib', 'var'),
@@ -9,15 +9,15 @@ function mAPs = main_med(feat_name, feat_dim, run_name, max_neg, num_agg, svmlib
     
     %C1Params = [0.1, 1, 10];
     %C2Params = [0.1, 1, 10];
-    C1Params = [1];
-    C2Params = [1];
+    %C1Params = [1];
+    %C2Params = [1];
     Proportion = 1;
     
     addpath(genpath('pSVM-master'));
     addpath('liblinear-1.95/matlab');
     
     %num_agg = 5;  % min_seg =4s, multiply by num_agg to form new seg
-    conf_name = sprintf('%s_mneg%d_nagg%d_%s_%s', feat_name, max_neg, num_agg, svmlib, run_name);
+    conf_name = sprintf('%s_mneg%d_nagg%d_c1%g_c2%g_p%g_%s_%s', feat_name, max_neg, num_agg, C1, C2, Proportion, svmlib, run_name);
     
     if ~isempty(strfind(feat_name, 'bow')),
         MEDMD = load_metadata(feat_name, feat_dim, num_agg);
@@ -34,13 +34,14 @@ function mAPs = main_med(feat_name, feat_dim, run_name, max_neg, num_agg, svmlib
     VidLabel = MEDMD.Label(MEDMD.TrnInd, :);
     OUT_NAME = sprintf('models/%s', conf_name);
 
-    psvm_train(VidLabel, TrnFeatNum, TrainVec, Proportion, C1Params, C2Params, OUT_NAME, max_neg, svmlib);
+    %psvm_train(VidLabel, TrnFeatNum, TrainVec, Proportion, C1, C2, OUT_NAME, max_neg, svmlib);
 
     TstLabel = MEDMD.Label(MEDMD.TstInd, :);
     featMat = MEDMD.featMat(MEDMD.TstInd);
     featNum = MEDMD.featNum(MEDMD.TstInd);
 
-    mAPs = psvm_test(TstLabel, featMat, featNum, conf_name, C1Params, C2Params);
+    conf_name
+    mAPs = psvm_test(TstLabel, featMat, featNum, conf_name, C1, C2);
 
 end
 

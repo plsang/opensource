@@ -1,4 +1,4 @@
-function [ model ] = alternating_svm_linear(fea, Bag_idx, Bag_prop, para)
+function [ model ] = alternating_svm_linear_SVM(fea, Bag_idx, Bag_prop, para)
 % alternating svm with projection method
 % algorithm: compute y, and project y to feasible solution
 % X N*d
@@ -34,14 +34,14 @@ obj_pre = inf;
 ifconverge = 0;
 while (ifconverge == 0)
     model = optimize_w(fea, model, para);
-    model = optimize_y(fea, model, para.C_2/para.C, para.ep, bag_to_idx);
+    %%model = optimize_y(fea, model, para.C_2/para.C, para.ep, bag_to_idx);
     obj_now = compute_obj(fea, model, para);
     fprintf('after solving y obj = %f\n', obj_now);
     eps = obj_pre - obj_now;
     
     if eps <= 0 || iter>=para.max_iter
         ifconverge = 1;
-    else
+    else 
         obj_pre = obj_now;
         model_pre = model;
         model_pre.obj = obj_pre;

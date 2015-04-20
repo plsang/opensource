@@ -11,7 +11,7 @@ StartEvent = 1;
 
 for c2 = 1:length(C2Params)
     for p = 1:length(Proportion)
-    fname = sprintf('%s/%s_c%g_p%g.mat', ModelDir, ModelName, C2Params(c2), Proportion(p));
+    fname = sprintf('%s/%s.mat', ModelDir, ModelName);
     if (~exist(fname, 'file'))
         fprintf('Cannot load %s\n', fname);
         continue;

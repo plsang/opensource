@@ -119,6 +119,6 @@ for C2 = C2Params
                 end
             end
         end
-    	save(sprintf('%s_c%g_p%g.mat', SaveName, C2, proport), 'model');
+    	save(sprintf('%s.mat', SaveName), 'model');
     end
 end
