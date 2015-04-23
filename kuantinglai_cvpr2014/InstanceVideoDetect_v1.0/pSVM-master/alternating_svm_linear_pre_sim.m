@@ -1,4 +1,4 @@
-function [ model ] = alternating_svm_linear_pre_sim(fea, train_kernel, Bag_idx, Sim, Bag_prop, para)
+function [ model ] = alternating_svm_linear_pre_sim(fea, train_kernel, Bag_idx, simrank, Bag_prop, para)
 
 addpath('/net/per610a/export/das11f/plsang/tools/libsvm-3.12/matlab');
 
@@ -32,15 +32,18 @@ for i = 1:length(model.bag_prop)
      model.bag_weight(i) = 1;
 end
 
-iter = 0;
+iter = 1;
 obj_pre = inf;
 ifconverge = 0;
 while (ifconverge == 0)
     model = optimize_w_pre(fea, train_kernel, model, para);
     %model = optimize_w(fea, model, para);
-    model = optimize_y(fea, model, para.C_2/para.C, para.ep, bag_to_idx, Sim);
-    obj_now = compute_obj(fea, model, para);
-    fprintf('after solving y obj = %f\n', obj_now);
+    [obj_1, obj_2]  = compute_obj(fea, model, para, simrank, iter);
+    fprintf(' iter = %d, before solving y, obj_1 = %f, obj_2 = %f, obj = %f\n', iter, obj_1, obj_2, obj_1 + obj_2);
+    model = optimize_y(fea, model, para, bag_to_idx, simrank, iter);
+    [obj_1, obj_2]  = compute_obj(fea, model, para, simrank, iter);
+    fprintf(' iter = %d, after solving y, obj_1 = %f, obj_2 = %f, obj = %f\n', iter, obj_1, obj_2, obj_1 + obj_2);
+    obj_now = obj_1 + obj_2;
     eps = obj_pre - obj_now;
     
     if eps <= 0 || iter>=para.max_iter
@@ -58,64 +61,46 @@ fprintf('final obj = %f\n', model.obj);
 end
 
 
-function [model] = optimize_y(fea, model, C, ep, bag_to_idx, Sim)
-%% compute the change
-f = fea*model.w + model.b;
-y_n = -ones(size(f,1),1);
-y_p = ones(size(f,1),1);
+function [model] = optimize_y(fea, model, para, bag_to_idx, simrank, iter)
+    
+    %% check how many proposed was accepted
+    if iter > 1,
+        temp_pos = (simrank == iter-1);
+        conflict_idx_pre = temp_pos & (model.pre_y == -1); 
+        conflict_idx = temp_pos & (model.y == -1); 
+        fprintf('Iter %d: Conflict before: %d.  Conflict after: %d.\n', iter, length(find(conflict_idx_pre>0)), length(find(conflict_idx>0)));
+    end
+    
+    model.pre_y = model.y;
+    
+    %conflict_idx = (model.pre_y ~= model.y);
+    
+    %conflict_01_idx = (model.y == 1) & conflict_idx;  %% only care for 0-1 change (negative -> positive)
+    pre_pos = (simrank == iter);
+    conflict_idx = pre_pos & (model.y == -1); 
+    fprintf('Iter: %d. No relevance: %d. No conflicts: %d.\n', iter, length(find(pre_pos>0)), length(find(conflict_idx>0)));
+    model.y(pre_pos) = 1;
+    
+    % if ~isempty(find(pre_pos > 0)),
+        % y(conflict_01_idx) = -1;
+        % y(conflict_01_idx & pre_pos) = 1;
+    % end
 
-xi_n = max(1 - y_n.*f, zeros(length(f),1));
-xi_p = max(1 - y_p.*f, zeros(length(f),1));
+    %% if there is no positive instance in the positive bag,
+    %% choose the one that has the highest posibility
+    % for i = 1:length(model.bag_prop)
+        % inst_idx = bag_to_idx{i};
+        % if ~any(y(inst_idx)) && model.bag_prop(i) == 1,
+            % [~, minrank_inst_idx] = min(simrank(inst_idx));
+            % y(inst_idx(minrank_inst_idx)) = 1;
+            % find rank of the new 
+        % end
+    % end
+            
+    %model.y = y;
 
-xi_flip = xi_n - xi_p;
-
-
-%% now optimize each bag
-for idx = 1:length(model.bag_prop)
-    current_bag_idx = bag_to_idx{idx};
-    tau = -length(current_bag_idx):2:length(current_bag_idx); % from all negatives to all positives
-    xi_flip_current = xi_flip(current_bag_idx);
-    
-    %% compute the second term of the objective function
-    tilda_xi = max(0, model.bag_prop(idx) - ep - tau/2/length(current_bag_idx)-0.5);
-    tilda_xi_star = max(0, -model.bag_prop(idx) - ep + tau/2/length(current_bag_idx)+0.5);
-    obj_second = C*model.bag_weight(idx)*(tilda_xi + tilda_xi_star);
-    
-    %% get sim
-    
-    
-    %% compute the first term of the objective function
-    [xi_flip_current_sorted, xi_idx_sorted] = sort(xi_flip_current, 'descend');
-    obj_decrease = [0; cumsum(xi_flip_current_sorted)];
-    obj_first = sum(xi_n(current_bag_idx)) - obj_decrease;
-    
-    % current_bag_sim = Sim(current_bag_idx);
-    % obj_sim = [0; C*current_bag_sim(xi_idx_sorted)];
-    
-    obj_proportion = obj_first + obj_second';
-    [~,num_to_flip] = min(obj_proportion);
-    
-    % new_obj = obj_first + obj_sim;
-    % [~,num_to_flip] = min(new_obj);
-    
-    num_to_flip = num_to_flip-1;
-    y_n(current_bag_idx(xi_idx_sorted(1:num_to_flip))) = ones(num_to_flip,1); % flip signs of each bag
-    %% record
-    model.xi_2(idx) = tilda_xi(num_to_flip+1);
-    model.xi_3(idx) = tilda_xi_star(num_to_flip+1);    
-end
-model.y = y_n;
-%model.xi = max(1 - y_n.*f, zeros(length(f),1));
 end
 
-
-function [ model ] = optimize_w(fea, model, para)
-% this is nothing more than the regular SVM
-    model_new = regular_svm_wrapper_linear(sparse(fea), model.y, para);
-    model.w = model_new.w;
-    model.b = 0;
-    %model.alp = model_new.alp;
-end
 
 function [ model ] = optimize_w_pre(fea, train_kernel, model, para)
 % this is nothing more than the regular SVM
@@ -135,11 +120,21 @@ function [ model ] = optimize_w_pre(fea, train_kernel, model, para)
     model_new = svmtrain(model.y, [(1:N)' train_kernel], svm_opts) ;
     model.b = -model_new.rho ;
     model.w = fea(model_new.SVs, :)'*model_new.sv_coef;
+    try
+        dec = model_new.sv_coef' * train_kernel(model_new.SVs, :) - model_new.rho;   
+    catch
+        fprintf('error');
+    end
+    
+    %model.y = sign(dec');
+    model.dec = dec';
     
     %cf http://www.csie.ntu.edu.tw/~cjlin/libsvm/faq.html#f804
     if model_new.Label(1) == -1,
         model.w = -model.w;
         model.b = -model.b;
+        model.y = -model.y;
+        model.dec = -model.dec;
     end
         
     %test_base = train_kernel(model_new.SVs, :);
@@ -148,10 +143,12 @@ function [ model ] = optimize_w_pre(fea, train_kernel, model, para)
     
 end
 
-function [objective] = compute_obj(fea, model, para)
-    f = fea*model.w + model.b;
-    xi = max(zeros(length(f),1), 1 - model.y.*f);
+function [obj_1, obj_2] = compute_obj(fea, model, para, simrank, iter)
+    %f = fea*model.w + model.b;
+    xi = max(zeros(length(model.dec),1), 1 - model.y.*model.dec);
     obj_1 = para.C * sum(xi) + 0.5*model.w'* model.w;
-    obj_2 = para.C_2*sum((model.xi_2+ model.xi_3)*model.bag_weight);
-    objective = obj_1 + obj_2;
+    pre_pos = double(simrank <= iter);
+    obj_2 = para.C_2 * sum(double(model.y ~= pre_pos));
+    %obj_2 = para.C_2*sum((model.xi_2+ model.xi_3)*model.bag_weight);
+    %objective = obj_1 + obj_2;
 end
