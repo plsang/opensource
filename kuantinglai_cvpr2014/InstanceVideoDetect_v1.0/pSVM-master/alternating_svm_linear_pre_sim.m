@@ -68,7 +68,7 @@ function [model] = optimize_y(fea, model, para, bag_to_idx, simrank, iter)
         temp_pos = (simrank == iter-1);
         conflict_idx_pre = temp_pos & (model.pre_y == -1); 
         conflict_idx = temp_pos & (model.y == -1); 
-        fprintf('Iter %d: Conflict before: %d.  Conflict after: %d.\n', iter, length(find(conflict_idx_pre>0)), length(find(conflict_idx>0)));
+        fprintf('Iter: %d. Conflict before: %d.  Conflict after: %d.\n', iter, length(find(conflict_idx_pre>0)), length(find(conflict_idx>0)));
     end
     
     model.pre_y = model.y;
@@ -78,7 +78,7 @@ function [model] = optimize_y(fea, model, para, bag_to_idx, simrank, iter)
     %conflict_01_idx = (model.y == 1) & conflict_idx;  %% only care for 0-1 change (negative -> positive)
     pre_pos = (simrank == iter);
     conflict_idx = pre_pos & (model.y == -1); 
-    fprintf('Iter: %d. No relevance: %d. No conflicts: %d.\n', iter, length(find(pre_pos>0)), length(find(conflict_idx>0)));
+    fprintf('Iter: %d. Num relevance: %d. Num conflicts: %d.\n', iter, length(find(pre_pos>0)), length(find(conflict_idx>0)));
     model.y(pre_pos) = 1;
     
     % if ~isempty(find(pre_pos > 0)),
