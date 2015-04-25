@@ -1,4 +1,4 @@
-function [ model ] = alternating_svm_linear_pre_sim(fea, train_kernel, Bag_idx, simrank, Bag_prop, para)
+function [ model ] = alternating_svm_linear_pre_sim(fea, train_kernel, Bag_idx, simrank, simrank_neg, Bag_prop, para)
 
 addpath('/net/per610a/export/das11f/plsang/tools/libsvm-3.12/matlab');
 
@@ -38,10 +38,10 @@ ifconverge = 0;
 while (ifconverge == 0)
     model = optimize_w_pre(fea, train_kernel, model, para);
     %model = optimize_w(fea, model, para);
-    [obj_1, obj_2]  = compute_obj(fea, model, para, simrank, iter);
+    [obj_1, obj_2]  = compute_obj(fea, model, para, simrank, simrank_neg, iter);
     fprintf(' iter = %d, before solving y, obj_1 = %f, obj_2 = %f, obj = %f\n', iter, obj_1, obj_2, obj_1 + obj_2);
-    model = optimize_y(fea, model, para, bag_to_idx, simrank, iter);
-    [obj_1, obj_2]  = compute_obj(fea, model, para, simrank, iter);
+    model = optimize_y(fea, model, para, bag_to_idx, simrank, simrank_neg, iter);
+    [obj_1, obj_2]  = compute_obj(fea, model, para, simrank, simrank_neg, iter);
     fprintf(' iter = %d, after solving y, obj_1 = %f, obj_2 = %f, obj = %f\n', iter, obj_1, obj_2, obj_1 + obj_2);
     obj_now = obj_1 + obj_2;
     eps = obj_pre - obj_now;
@@ -61,14 +61,19 @@ fprintf('final obj = %f\n', model.obj);
 end
 
 
-function [model] = optimize_y(fea, model, para, bag_to_idx, simrank, iter)
+function [model] = optimize_y(fea, model, para, bag_to_idx, simrank, simrank_neg, iter)
     
     %% check how many proposed was accepted
     if iter > 1,
         temp_pos = (simrank == iter-1);
         conflict_idx_pre = temp_pos & (model.pre_y == -1); 
-        conflict_idx = temp_pos & (model.y == -1); 
-        fprintf('Iter: %d. Conflict before: %d.  Conflict after: %d.\n', iter, length(find(conflict_idx_pre>0)), length(find(conflict_idx>0)));
+        conflict_idx = temp_pos & (model.y_ == -1); 
+        fprintf('----- Solved Pos. Conflict before: %d.  Conflict after: %d.\n', length(find(conflict_idx_pre>0)), length(find(conflict_idx>0)));
+        
+        temp_neg = (simrank_neg == iter-1);
+        conflict_idx_pre = temp_neg & (model.pre_y == 1); 
+        conflict_idx = temp_neg & (model.y_ == 1); 
+        fprintf('----- Solved Neg. Conflict before: %d.  Conflict after: %d.\n', length(find(conflict_idx_pre>0)), length(find(conflict_idx>0)));
     end
     
     model.pre_y = model.y;
@@ -78,8 +83,13 @@ function [model] = optimize_y(fea, model, para, bag_to_idx, simrank, iter)
     %conflict_01_idx = (model.y == 1) & conflict_idx;  %% only care for 0-1 change (negative -> positive)
     pre_pos = (simrank == iter);
     conflict_idx = pre_pos & (model.y == -1); 
-    fprintf('Iter: %d. Num relevance: %d. Num conflicts: %d.\n', iter, length(find(pre_pos>0)), length(find(conflict_idx>0)));
+    fprintf(' --- Pos Info. Num relevance: %d. Num conflicts: %d.\n', length(find(pre_pos>0)), length(find(conflict_idx>0)));
     model.y(pre_pos) = 1;
+    
+    pre_neg = (simrank_neg == iter);
+    conflict_idx = pre_neg & (model.y == 1); 
+    fprintf(' --- Neg Info. Num relevance: %d. Num conflicts: %d.\n', length(find(pre_neg>0)), length(find(conflict_idx>0)));
+    model.y(pre_neg) = -1;
     
     % if ~isempty(find(pre_pos > 0)),
         % y(conflict_01_idx) = -1;
@@ -126,7 +136,7 @@ function [ model ] = optimize_w_pre(fea, train_kernel, model, para)
         fprintf('error');
     end
     
-    %model.y = sign(dec');
+    model.y_ = sign(dec');
     model.dec = dec';
     
     %cf http://www.csie.ntu.edu.tw/~cjlin/libsvm/faq.html#f804
@@ -143,12 +153,18 @@ function [ model ] = optimize_w_pre(fea, train_kernel, model, para)
     
 end
 
-function [obj_1, obj_2] = compute_obj(fea, model, para, simrank, iter)
+function [obj_1, obj_2] = compute_obj(fea, model, para, simrank, simrank_neg, iter)
     %f = fea*model.w + model.b;
     xi = max(zeros(length(model.dec),1), 1 - model.y.*model.dec);
     obj_1 = para.C * sum(xi) + 0.5*model.w'* model.w;
-    pre_pos = double(simrank <= iter);
-    obj_2 = para.C_2 * sum(double(model.y ~= pre_pos));
+    
+    % pre_all = zeros(length(simrank), 1);
+    % pre_all(simrank <= iter) = 1;
+    % pre_all(simrank <= iter) = -1;
+    % obj_2 = para.C_2 * (sum(double(model.y ~= pre_all)));
+    
+    obj_2 = para.C_2 * (sum(double(model.y(simrank <= iter) ~= 1)) + sum(double(model.y(simrank_neg <= iter) ~= -1)));
+    
     %obj_2 = para.C_2*sum((model.xi_2+ model.xi_3)*model.bag_weight);
     %objective = obj_1 + obj_2;
 end
