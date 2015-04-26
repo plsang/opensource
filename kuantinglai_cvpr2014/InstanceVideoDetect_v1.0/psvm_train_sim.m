@@ -6,7 +6,7 @@
 % The videos are bags, while frames or video clips in a vide are instances
 
 
-function psvm_train_sim(VidLabel, BagInstNum, InstDataVec, TrainSim, Proportion, C1Params, C2Params, SaveName, max_neg, svmlib)
+function psvm_train_sim(VidLabel, BagInstNum, InstDataVec, TrainSim, Proportion, C1Params, C2Params, SaveName, max_neg, svmlib, R)
 
 % VidLabel:     Labels of videos (bags) 
 % BagInstNum:   Number of instances in each bag (video)
@@ -92,38 +92,62 @@ for C2 = C2Params
                 subDataInd = [subDataInd; find(FrmBagInd == VidInd(j))];
             end
             subData = InstDataVec(subDataInd, :);
-            subSim = TrainSim(subDataInd, :);
-            simrank = zeros(length(subDataInd), 1);
+            subSim = TrainSim(subDataInd, i);
+            
             % Target Proportion(p)% and 0% positive instances in positive and negative bags, respectively
             % instance = frame, bag = video
             bagPortion = [proport*ones(length(PosVidInd),1); 0*ones(length(NegVidInd),1)];
             bagLabels = [ones(length(PosVidInd),1); -1*ones(length(NegVidInd),1)];
-            %Params.init_y = bagLabels(subFrmBagInd);
+            Params.init_y = bagLabels(subFrmBagInd);
             
-            
-            [sorted_, sorted_idx] = max(subSim, [], 2);
-            init_y = double(sorted_idx == i);
-            simrank(sorted_idx == i) = 1;
-            
-            for j = 1:length(PosVidInd),
-                inst_idx = find(subFrmBagInd == j);
-                %% if there is no positive instance in the positive bag,
-                %% choose the one that has the highest posibility
-                if ~any(init_y(inst_idx)),
-                    [~, max_inst_idx] = max(subSim(inst_idx, i));
-                    init_y(inst_idx(max_inst_idx)) = 1;
-                    %% find rank of the new 
-                    [~, sorted_event_idx] = sort(subSim(inst_idx(max_inst_idx), :), 'descend');
-                    cur_rank = find(sorted_event_idx == i);
-                    simrank(inst_idx(max_inst_idx)) = cur_rank;
-                end
+            min_sim = 0.01;
+            % cal sim rank
+            range = linspace(max(subSim), min_sim, R+1);
+            simrank = zeros(length(subSim), 1);
+            for ii=1:R,
+                top = range(ii);
+                if ii < R,
+                    bottom = range(ii+1);
+                else
+                    bottom = min_sim;
+                end 
+                simrank(find(subSim <= top & subSim > bottom)) = ii;
             end
+            
+            range = linspace(0, min_sim, R+1);
+            simrank_neg = zeros(length(subSim), 1);
+            for ii=1:R,
+                bottom = range(ii);
+                if ii < R,
+                    top = range(ii+1);
+                else
+                    top = min_sim;
+                end 
+                simrank_neg(find(subSim >= bottom & subSim < top)) = ii;
+            end
+            
+            % init_y = double(simrank == 1);
+            
+            %% if there is no positive instance in the positive bag,
+            %% choose the one that has the highest posibility
+            % for j = 1:length(PosVidInd),
+                % inst_idx = find(subFrmBagInd == j);
+                % if ~any(init_y(inst_idx)),
+                    % [~, max_inst_idx] = max(subSim(inst_idx));
+                    % init_y(inst_idx(max_inst_idx)) = 1;
+                    % find rank of the new 
+                    % cur_rank = simrank(inst_idx(max_inst_idx));
+                % end
+            % end
+            
+            % init_y(init_y == 0) = -1;
+            % Params.init_y = init_y;
             
             %% check positive bag without any positive instance label
             
             
             fprintf('Training Event %d by pSVM\n', i);
-            Params.method = 'alter-pSVM'; Params.C_2=C2; Params.ep = 0; Params.verbose=0;
+            Params.method = 'alter-pSVM'; Params.C_2=C2; Params.ep = 0; Params.verbose=0; Params.R = R;
             %Params.max_iter = 10;
             
             fprintf('cal train kernel...\n');
@@ -133,7 +157,7 @@ for C2 = C2Params
             for n=1:length(C1Params)
                 fprintf('C1=%g, C2=%g\n', C1Params(n), C2);
                 Params.C=C1Params(n); 
-                model{n, i} = alternating_svm_linear_pre_sim(subData, train_kernel, subFrmBagInd, subSim, bagPortion, Params); 
+                model{n, i} = alternating_svm_linear_pre_sim(subData, train_kernel, subFrmBagInd, simrank, simrank_neg, bagPortion, Params); 
             end
         end
     	save(sprintf('%s.mat', SaveName), 'model');
