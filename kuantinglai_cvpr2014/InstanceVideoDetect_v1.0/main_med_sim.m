@@ -36,13 +36,14 @@ function mAPs = main_med_sim(feat_name, feat_dim, run_name, max_neg, num_agg, C1
     VidLabel = MEDMD.Label(MEDMD.TrnInd, :);
     OUT_NAME = sprintf('models/%s', conf_name);
 
-    psvm_train_sim(VidLabel, TrnFeatNum, TrainVec, TrainSim, Proportion, C1, C2, OUT_NAME, max_neg, svmlib, R);
+    %psvm_train_sim(VidLabel, TrnFeatNum, TrainVec, TrainSim, Proportion, C1, C2, OUT_NAME, max_neg, svmlib, R);
 
     TstLabel = MEDMD.Label(MEDMD.TstInd, :);
     featMat = MEDMD.featMat(MEDMD.TstInd);
     featNum = MEDMD.featNum(MEDMD.TstInd);
 
-    mAPs = psvm_test(TstLabel, featMat, featNum, conf_name, C1, C2);
+    %mAPs = psvm_test(TstLabel, featMat, featNum, conf_name, C1, C2);
+    mAPs = psvm_test_save(MEDMD, TstLabel, featMat, featNum, conf_name, C1, C2);
 
 end
 
@@ -70,6 +71,8 @@ function MEDMD = load_metadata(feat_name, feat_dim, num_agg)
     MEDMD.featMat = cell(length(MEDMD.clips), 1);
     MEDMD.featNum = zeros(length(MEDMD.clips), 1);
     MEDMD.simMat = cell(length(MEDMD.clips), 1);
+    MEDMD.kfidx = cell(length(MEDMD.clips), 1);
+    
     for ii=1:length(MEDMD.clips),
         if ~mod(ii, 100), fprintf('%d ', ii); end;
         
@@ -84,6 +87,7 @@ function MEDMD = load_metadata(feat_name, feat_dim, num_agg)
         cosims_ = cosims.(video_id);
         num_keyframes = size(cosims_, 2);
         simMat_ = zeros(length(MEDMD.event_ids), length(idxs));
+        kfidx_ = zeros(2, length(idxs));
         
         remove_last_seg = 0;
         
@@ -114,6 +118,8 @@ function MEDMD = load_metadata(feat_name, feat_dim, num_agg)
             sim = mean(cosim_, 2);
             
             simMat_(:, jj) = sim;
+            
+            kfidx_(:, jj) = [start_frame_idx;end_frame_idx];
         end
         
         if remove_last_seg,
@@ -125,6 +131,7 @@ function MEDMD = load_metadata(feat_name, feat_dim, num_agg)
         MEDMD.featMat{ii} = featMat_';
         MEDMD.featNum(ii) = length(idxs);
         MEDMD.simMat{ii} = simMat_';
+        MEDMD.kfidx{ii} = kfidx_;
         
         clear code featMat_ simMat_;
     end
