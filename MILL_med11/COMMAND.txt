@@ -1,0 +1,28 @@
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg Inf -- seg_SVM -Kernel 0');
+
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg Inf -- bag_MI_SVM -Kernel 0');
+
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg Inf -- inst_MI_SVM -Kernel 0');
+
+
+feat_name = idensetraj.mbh.hardbow.cb4000
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.mbh.hardbow.cb4000 -fdim 4000 -nagg 5 -- bag_MI_SVM -Kernel 0');
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.mbh.hardbow.cb4000 -fdim 4000 -nagg 5 -- inst_MI_SVM -Kernel 0');
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.mbh.hardbow.cb4000 -fdim 4000 -nagg 5 -- seg_SVM -Kernel 0');
+
+idensetraj.hoghof.fisher.cb256.pca128
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.hoghof.fisher.cb256.pca128 -fdim 65536 -nagg 5 -- inst_MI_SVM -Kernel 0');
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.hoghof.fisher.cb256.pca128 -fdim 65536 -nagg 5 -- bag_MI_SVM -Kernel 0');
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.hoghof.fisher.cb256.pca128 -fdim 65536 -nagg 5 -- seg_SVM -Kernel 0');
+
+
+
+feat_name = idensetraj.mbh.hardbow.cb4000
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2011 -ss 1 -ee 10 -mneg 30 -fname idensetraj.mbh.hardbow.cb4000 -fdim 4000 -nagg 2 -- bag_MI_SVM -Kernel 0');
+
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2011 -ss 1 -ee 10 -mneg 30 -fname idensetraj.mbh.hardbow.cb4000 -fdim 4000 -nagg 2 -- inst_MI_SVM -Kernel 0');
+
+
+MIL_Run('classify -t example.data -sf 0 -n 0 -- train_test_validate_med2011 -ss 1 -ee 10 -mneg 30 -fname idensetraj.mbh.hardbow.cb4000 -fdim 4000 -nagg 2 -- seg_SVM -Kernel 0');
+
+

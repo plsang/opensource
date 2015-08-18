@@ -1,0 +1,422 @@
+Testing Bag Label Evaluation:
+Index	Probability	Predict	Truth
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 11, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 11, end event = 12, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.hoghof.fisher.cb256.pca64 -fdim 32768 -nagg 5 -- inst_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30

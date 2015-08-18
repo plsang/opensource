@@ -1,0 +1,1423 @@
+
+Processing Filename: example.data
+Classifier:DD -NumRuns 10 Aggregate avg
+Message: Cross Validation, Folder: 5, 
+
+Processing Filename: example.data
+Classifier:DD -NumRuns 10 Aggregate avg
+Message: Cross Validation, Folder: 5, 
+
+Processing Filename: example.data
+Classifier:DD -NumRuns 10 Aggregate avg
+Message: Cross Validation, Folder: 5, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: 50, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: 50, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: 50, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: 50, 
+Bag label accuracy = 0.309524, Instance label accuracy = 0.154440, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 2 KernelParam 0.1 -CostFactor 10
+Message: Train-Test Split, Boundary: 50, 
+Bag label accuracy = 0.261905, Instance label accuracy = 0.135135, 
+
+Processing Filename: example.data
+Classifier:iterdiscrim_APR
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.594470, 
+
+Processing Filename: example.data
+Classifier:iterdiscrim_APR
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.630435, Instance label accuracy = 0.644788, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.782609, Instance label accuracy = 0.787234, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.500000, Instance label accuracy = 0.572016, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.543478, Instance label accuracy = 0.540084, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.478261, Instance label accuracy = 0.536946, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.478261, Instance label accuracy = 0.565737, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.456522, Instance label accuracy = 0.547414, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.478261, Instance label accuracy = 0.648746, 
+
+Processing Filename: example.data
+Classifier:iterdiscrim_APR
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.621891, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.652174, Instance label accuracy = 0.594142, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.478261, Instance label accuracy = 0.597701, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.760870, Instance label accuracy = 0.674658, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.722892, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.622407, 
+Bag label accuracy = 0.760870, Instance label accuracy = 0.708000, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.608696, Instance label accuracy = 0.526066, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.709821, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.543478, Instance label accuracy = 0.557940, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.630435, Instance label accuracy = 0.563319, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.664474, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.692308, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.652174, Instance label accuracy = 0.648649, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.635417, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.782609, Instance label accuracy = 0.698842, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.760870, Instance label accuracy = 0.763780, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.608696, Instance label accuracy = 0.608059, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.608696, Instance label accuracy = 0.579310, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.652174, Instance label accuracy = 0.620805, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.565217, Instance label accuracy = 0.441781, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.684932, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.684932, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.575563, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.597765, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.826087, Instance label accuracy = 0.703057, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.413043, Instance label accuracy = 0.439462, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.760870, Instance label accuracy = 0.642361, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.652174, Instance label accuracy = 0.605469, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.826087, Instance label accuracy = 0.719828, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.663968, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.586957, Instance label accuracy = 0.608856, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.608696, Instance label accuracy = 0.573222, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.586957, Instance label accuracy = 0.591623, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.613861, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.478261, Instance label accuracy = 0.582456, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.804348, Instance label accuracy = 0.743295, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.782609, Instance label accuracy = 0.674107, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.826087, Instance label accuracy = 0.798354, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.606299, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.607595, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.597510, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.630435, Instance label accuracy = 0.634615, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.755274, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+Bag label accuracy = 0.943240, Instance label accuracy = 0.974279, 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:inst_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.782609, Instance label accuracy = 0.662835, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+Bag label accuracy = 0.948916, Instance label accuracy = 0.969484, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+Bag label accuracy = 0.950980, Instance label accuracy = 0.970162, MAP = 0.258107, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.972652, Instance label accuracy = 0.965900, MAP = 0.548146, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 4 
+Bag label accuracy = 0.959236, Instance label accuracy = 0.942456, MAP = 0.250003, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 5 
+Bag label accuracy = 0.959236, Instance label accuracy = 0.946428, MAP = 0.128964, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 5 
+Bag label accuracy = 0.959236, Instance label accuracy = 0.946428, MAP = 0.129639, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.804348, Instance label accuracy = 0.676724, MAP = 0.877323, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.601064, MAP = 0.801824, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.782609, Instance label accuracy = 0.587156, MAP = 0.727123, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.565217, Instance label accuracy = 0.667939, MAP = 0.515200, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.586957, Instance label accuracy = 0.555556, MAP = 0.874888, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.618644, MAP = 0.688923, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.639831, MAP = 0.796681, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.617391, MAP = 0.851970, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.686347, MAP = 0.803944, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.731518, MAP = 0.853432, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.684000, MAP = 0.768399, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.760870, Instance label accuracy = 0.683417, MAP = 0.871779, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.675393, MAP = 0.841580, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.782609, Instance label accuracy = 0.703704, MAP = 0.906909, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.666667, MAP = 0.754826, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.586957, Instance label accuracy = 0.595238, MAP = 0.809304, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.630435, Instance label accuracy = 0.539216, MAP = 0.798974, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.673913, Instance label accuracy = 0.570957, MAP = 0.637061, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.683258, MAP = 0.737212, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.586957, Instance label accuracy = 0.613281, MAP = 0.794196, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.760870, Instance label accuracy = 0.595000, MAP = 0.750428, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.652174, MAP = 0.831927, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.670498, MAP = 0.798505, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.608696, Instance label accuracy = 0.632911, MAP = 0.706990, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.717391, Instance label accuracy = 0.676471, MAP = 0.778282, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.695652, Instance label accuracy = 0.615789, MAP = 0.823661, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.804348, Instance label accuracy = 0.700000, MAP = 0.838529, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.804348, Instance label accuracy = 0.705882, MAP = 0.837039, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.739130, Instance label accuracy = 0.598131, MAP = 0.734783, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.586957, Instance label accuracy = 0.528571, MAP = 0.666959, 
+
+Processing Filename: example.data
+Classifier:bag_mi_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2,  Shuffled 
+Bag label accuracy = 0.608696, Instance label accuracy = 0.662963, MAP = 0.606556, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+Bag label accuracy = 0.950980, Instance label accuracy = 0.970162, MAP = 0.205679, 
+Bag label accuracy = 0.946336, Instance label accuracy = 0.969436, MAP = 0.347374, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+Bag label accuracy = 0.946336, Instance label accuracy = 0.969629, MAP = 0.275503, 
+Bag label accuracy = 0.950980, Instance label accuracy = 0.970162, MAP = 0.220890, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.962848, Instance label accuracy = 0.966917, MAP = 0.544605, 
+Bag label accuracy = 0.966460, Instance label accuracy = 0.960184, MAP = 0.505070, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.973168, Instance label accuracy = 0.961153, MAP = 0.610274, 
+Bag label accuracy = 0.963880, Instance label accuracy = 0.959700, MAP = 0.289251, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.972652, Instance label accuracy = 0.964640, MAP = 0.530266, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.963364, Instance label accuracy = 0.959603, MAP = 0.297612, 
+Bag label accuracy = 0.968524, Instance label accuracy = 0.961250, MAP = 0.439807, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.971620, Instance label accuracy = 0.962800, MAP = 0.767128, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.962848, Instance label accuracy = 0.959457, MAP = 0.524356, 
+Bag label accuracy = 0.983488, Instance label accuracy = 0.964011, MAP = 0.742549, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.941692, Instance label accuracy = 0.965125, MAP = 0.375362, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.964912, Instance label accuracy = 0.960087, MAP = 0.409779, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.973168, Instance label accuracy = 0.961831, MAP = 0.446402, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.964396, Instance label accuracy = 0.959748, MAP = 0.386519, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.967492, Instance label accuracy = 0.960862, MAP = 0.511549, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.995872, Instance label accuracy = 0.965997, MAP = 0.871029, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+Bag label accuracy = 0.964396, Instance label accuracy = 0.959651, MAP = 0.799162, 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 4 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 5 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+Bag label accuracy = 0.964396, Instance label accuracy = 0.959651, MAP = 0.799162, 
+Bag label accuracy = 0.945304, Instance label accuracy = 0.974037, MAP = 0.636790, 
+Bag label accuracy = 0.950980, Instance label accuracy = 0.970162, MAP = 0.584708, 
+Bag label accuracy = 0.995872, Instance label accuracy = 0.965997, MAP = 0.871029, 
+Bag label accuracy = 0.966976, Instance label accuracy = 0.943860, MAP = 0.819207, 
+Bag label accuracy = 0.956140, Instance label accuracy = 0.976217, MAP = 0.649268, 
+Bag label accuracy = 0.948916, Instance label accuracy = 0.969872, MAP = 0.727667, 
+Bag label accuracy = 0.957172, Instance label accuracy = 0.946186, MAP = 0.494367, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, event 3 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, event 2 
+Bag label accuracy = 0.951496, Instance label accuracy = 0.976750, MAP = 0.510537, 
+Bag label accuracy = 0.971104, Instance label accuracy = 0.967062, MAP = 0.636810, 
+Bag label accuracy = 0.953044, Instance label accuracy = 0.970308, MAP = 0.426214, 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, event 1 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, event 10 
+Bag label accuracy = 0.938080, Instance label accuracy = 0.969484, MAP = 0.130228, 
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 10, end event = 11, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 11, end event = 12, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 17, end event = 17, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 25, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.hoghof.fisher.cb256.pca64 -fdim 32768 -nagg 5 -- inst_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:seg_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = Inf
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:bag_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30
+
+Processing Filename: example.data
+Classifier:inst_MI_SVM -Kernel 0
+Message: Running on MED2012, start event = 1, end event = 10, max neg = 30

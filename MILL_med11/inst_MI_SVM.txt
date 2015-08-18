@@ -1,0 +1,29 @@
+[?1h=
+                                                                          < M A T L A B (R) >
+                                                                Copyright 1984-2009 The MathWorks, Inc.
+                                                              Version 7.9.0.529 (R2009b) 64-bit (glnxa64)
+                                                                            August 12, 2009
+
+{Warning: Function /net/per610a/export/das11f/plsang/codes/opensource/MILL_med11/strtrim.m has the same name as a MATLAB builtin. We suggest you rename the function to
+avoid a potential name conflict.} 
+{Warning: Function /net/per610a/export/das11f/plsang/codes/opensource/MILL_med11/strtrim.m has the same name as a MATLAB builtin. We suggest you rename the function to
+avoid a potential name conflict.} 
+ 
+  To get started, type one of these: helpwin, helpdesk, or demo.
+  For product information, visit www.mathworks.com.
+ 
+Finished loading example.data.............
+Output Results to example.data.result.............
+Output Predictions to example.data.pred.............
+Classifier:train_test_validate_med2012 -ss 1 -ee 25 -mneg 30 -fname idensetraj.hoghof.fisher.cb256.pca64 -fdim 32768 -nagg 5 -- inst_MI_SVM -Kernel 0
+Message: Train-Test Split, Boundary: -2, 
+[?1h={Warning: Function /net/per610a/export/das11f/plsang/codes/opensource/MILL_med11/strtrim.m has the same name as a MATLAB builtin. We suggest you rename the function to
+avoid a potential name conflict.} 
+> In MIL_Data_Load at 17
+  In MIL_Train_Test_Validate at 10
+  In MIL_Run at 266
+>> 
+>> 
+>> 
+>> 
+>> 
