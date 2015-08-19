@@ -1,0 +1,33 @@
+An Implementation of a pedestrian detector based on multiscale HOG like features
+and pyramid match kernel based SVM. The classifier based on the paper:
+
+----------
+Classification using Intersection Kernel SVMs is Efficient,
+Subhransu Maji, Alexander C. Berg, Jitendra Malik
+CVPR 2008, Anchorage, Alaska.
+
+---------
+Run the ped_demo.m to run the pedestrian detector. It loads the precomputed
+models and runs the detector on a test image (from the INRIA person dataset).
+
+you can change the scaleratio to make the code go faster.
+It is currently set at 2^(1/8) and it takes about 6.7s to run the detector
+over 9046 windows and classify them. The classification time is 0.64s. 
+
+The folder contains (approximate) pretrained models computed from the 
+INRIA training data. If you want to change the feature parameters then you
+have to retrain models. We currenly use LIBSVM to train the models and 
+use the precomp_models (inside libsvm-mat-2.84-1-fast.v3) to compute the
+approximations. The classification is done using fiksvm_predict. 
+
+Add libsvm-mat-2.84-1-fast.v3 to the path. This is the code for running
+fast prediction using the ideas from our CVPR'08 paper. The approximate
+models use 300 bins in each dimension for approximation. 
+--
+Subhransu Maji
+www.cs.berkeley.edu/~smaji
+
+
+
+
+
