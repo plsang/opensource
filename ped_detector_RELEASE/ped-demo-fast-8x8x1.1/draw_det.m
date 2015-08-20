@@ -1,13 +1,13 @@
-function draw_det(image, win_posw,win_posh,winw,winh,scores, threshold)
+function num_box = draw_det(image, win_posw,win_posh,winw,winh,scores, threshold)
 
-    tmp_dir = '/net/per920a/export/das14a/satoh-lab/plsang/codes/ped_detector_RELEASE/tmp';
+    num_box = 0;
+    tmp_dir = '/tmp';
     [image_dir, image_name] = fileparts(image);
     [~,video_name] = fileparts(image_dir);
     
     output_dir = sprintf('%s/%s-detected', tmp_dir, video_name);
     if ~exist(output_dir, 'file'), mkdir(output_dir); end;
     output_file = sprintf('%s/%s.jpg', output_dir, image_name);
-    output_file
     
     if exist(output_file, 'file'), return; end;
     
@@ -15,7 +15,8 @@ function draw_det(image, win_posw,win_posh,winw,winh,scores, threshold)
     %draw the figure
     img = imread(image); 
     %edge_colors={'r','g','b','c','m','y'};
-    for i = 1:length(indx),
+    num_box = length(indx);
+    for i = 1:num_box,
         ii = indx(i);
         det_rect = [win_posw(ii), win_posh(ii), winw(ii), winh(ii)];
         img = draw_rectangle(img, det_rect);

@@ -1,4 +1,4 @@
-function [dr,ds] = run_detector(image,approx_model_hard,scaleratio,nmax_param)
+function [dr,ds,num_box] = run_detector(image,approx_model_hard,scaleratio,nmax_param)
 
 %non changable parameters
 nori=9;
@@ -93,6 +93,6 @@ raws = e(indx);
 fprintf('%.2fs to compute features, %.2fs to classify %i features..\n',...
 feature_time, classification_time, length(e));
 %draw the final detections 
-draw_det(image, dr(:,1),dr(:,2),dr(:,3),dr(:,4),ds,threshold);
+num_box = draw_det(image, dr(:,1),dr(:,2),dr(:,3),dr(:,4),ds,threshold);
 title(sprintf('Pedestrian Detections [threshold = %.2f]',threshold));
 end

@@ -1,4 +1,4 @@
-function ped_demo(image),
+function num_box = ped_demo(image),
     %% non max supression (similar to hog-detector)
     nmax_param.sw = 0.1;
     nmax_param.sh = 0.1;
@@ -20,6 +20,6 @@ function ped_demo(image),
     addpath ../libsvm-mat-2.84-1-fast.v3/
 
     %% run the detector 
-    [dr,ds] = run_detector(image,approx_model_hard,scaleratio,nmax_param);
+    [~,~, num_box] = run_detector(image,approx_model_hard,scaleratio,nmax_param);
 
 end
